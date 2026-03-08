@@ -793,7 +793,7 @@
           </div>
           <div class="form-group">
             <label>Practice Name</label>
-            <input type="text" name="practice" placeholder="Smith Family Chiropractic" required>
+            <input type="text" name="practice_display_name" placeholder="Smith Family Chiropractic" required>
           </div>
           <div class="form-group">
             <label>Email</label>
@@ -820,17 +820,26 @@
           document.getElementById("contact-form").addEventListener("submit", function(e) {
             e.preventDefault();
             var form = this;
+            var btn = form.querySelector("button[type=submit]");
+            btn.textContent = "Setting up your account...";
+            btn.disabled = true;
             var data = {};
             new FormData(form).forEach(function(v, k) { data[k] = v; });
-            fetch("https://formspree.io/f/xleqejyn", {
+            fetch("https://api.gleamreply.com/signup", {
               method: "POST",
               body: JSON.stringify(data),
-              headers: { "Accept": "application/json", "Content-Type": "application/json" }
-            }).then(function(r) {
-              form.style.display = "none";
-              document.getElementById("thank-you").style.display = "block";
+              headers: { "Content-Type": "application/json" }
+            }).then(function(r) { return r.json(); })
+            .then(function(d) {
+              if (d.checkout_url) {
+                window.location.href = d.checkout_url;
+              } else {
+                throw new Error("No checkout URL");
+              }
             }).catch(function() {
-              window.location.href = "mailto:james@lucralab.com?subject=Gleam%20Signup%20Request&body=Name:%20" + encodeURIComponent(data.name || "") + "%0APractice:%20" + encodeURIComponent(data.practice || "") + "%0AEmail:%20" + encodeURIComponent(data.email || "") + "%0APhone:%20" + encodeURIComponent(data.phone || "");
+              btn.textContent = "Get Started →";
+              btn.disabled = false;
+              alert("Something went wrong. Please try again or email hello@gleamreply.com");
             });
           });
         </script>
