@@ -952,7 +952,7 @@
             <span style="color:#07b9fd; font-size:20px; flex-shrink:0; margin-left:16px;">+</span>
           </summary>
           <p style="color:#94a3b8; margin-top:16px; line-height:1.7; margin-bottom:0;">
-            Yes. Gleam is designed from the ground up to be HIPAA-safe for healthcare practices. Here's what that means in practice: Gleam never connects to your practice management software, EHR, scheduling system, or any internal patient data — ever. It only reads text that patients have already chosen to make public on Google. More importantly, our AI is explicitly instructed never to confirm, reference, or acknowledge any treatment details, diagnoses, procedures, or health information in its responses — even if a patient mentions specifics in their review. If a patient writes "Dr. Smith fixed my root canal," the response will thank them warmly without touching the clinical content. We also execute a Business Associate Agreement (BAA) as part of our Terms of Service, providing the contractual HIPAA coverage your practice needs.
+            Yes. Gleam is designed from the ground up to be HIPAA-safe for healthcare practices. Here's what that means in practice: Gleam never connects to your practice management software, EHR, scheduling system, or any internal patient data — ever. It only reads text that patients have already chosen to make public on Google. More importantly, our AI is explicitly instructed never to confirm, reference, or acknowledge any treatment details, diagnoses, procedures, or health information in its responses — even if a patient mentions specifics in their review. If a patient writes "Dr. Smith fixed my root canal," the response will thank them warmly without touching the clinical content. Because Gleam only reads and responds to public reviews — never patient records or internal systems — we are not a Business Associate under HIPAA and no BAA is required.
           </p>
         </details>
 
@@ -1012,6 +1012,12 @@
               <option>4+ locations</option>
             </select>
           </div>
+          <div class="form-group" style="display:flex; align-items:flex-start; gap:12px; margin-top:8px;">
+            <input type="checkbox" id="consent" name="consent" required style="margin-top:4px; accent-color:#07b9fd; width:16px; height:16px; flex-shrink:0;">
+            <label for="consent" style="font-size:13px; color:#94a3b8; line-height:1.5; cursor:pointer;">
+              I agree to the <a href="/privacy.html" target="_blank" style="color:#07b9fd;">Privacy Policy</a> and <a href="/terms.html" target="_blank" style="color:#07b9fd;">Terms of Service</a>. I consent to being contacted about my Gleam account.
+            </label>
+          </div>
           <button type="submit" class="form-submit">Get Started →</button>
         </form>
         <div id="thank-you" style="display:none; text-align:center; padding:24px; color:#07b9fd; font-weight:700; font-size:18px;">
@@ -1057,6 +1063,11 @@
     </div>
     <p>© 2026 LucraLab. All rights reserved.<br>
     <a href="https://www.lucralab.com" style="color:#5e6cd3; text-decoration:none; font-size:13px;">lucralab.com</a></p>
+    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+      <a href="/privacy.html" style="color:#5e6cd3; text-decoration:none; font-size:13px;">Privacy Policy</a>
+      <span style="color:#5e6cd3;"> · </span>
+      <a href="/terms.html" style="color:#5e6cd3; text-decoration:none; font-size:13px;">Terms of Service</a>
+    </div>
   </footer>
 
 </body>

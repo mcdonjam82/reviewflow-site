@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Gleam by LucraLab</title>
+  <meta name="description" content="Gleam Privacy Policy — how we collect, use, and protect your data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep-blue: #1f3b90;
+      --cyan: #07b9fd;
+      --purple: #7649ec;
+      --dark: #151327;
+      --darker: #0d0b1e;
+      --light: #f1f1f1;
+      --white: #ffffff;
+      --gray: #94a3b8;
+      --gradient: linear-gradient(135deg, var(--deep-blue), var(--purple));
+      --gradient-h: linear-gradient(90deg, var(--deep-blue), var(--cyan));
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--darker);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(13, 11, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: var(--gradient-h);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--cyan); }
+
+    /* GRADIENT BAR */
+    .gradient-bar {
+      height: 3px;
+      background: var(--gradient-h);
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 72px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(31,59,144,0.3) 0%, transparent 70%);
+    }
+
+    .page-header-inner { position: relative; }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(7,185,253,0.12);
+      border: 1px solid rgba(7,185,253,0.3);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-header .effective {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    .toc {
+      background: rgba(31,59,144,0.1);
+      border: 1px solid rgba(31,59,144,0.3);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toc ol li a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .toc ol li a:hover { color: var(--cyan); }
+
+    .policy-section {
+      margin-bottom: 52px;
+      scroll-margin-top: 80px;
+    }
+
+    .policy-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .policy-section h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 28px 0 10px;
+    }
+
+    .policy-section p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .policy-section p strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .policy-section ul, .policy-section ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .policy-section ul li, .policy-section ol li {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .policy-section ul li strong, .policy-section ol li strong {
+      color: var(--white);
+    }
+
+    .callout {
+      background: rgba(7,185,253,0.06);
+      border: 1px solid rgba(7,185,253,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .callout p {
+      color: var(--white) !important;
+      font-size: 15px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .callout p strong { color: var(--cyan) !important; }
+
+    .contact-box {
+      background: rgba(31,59,144,0.15);
+      border: 1px solid rgba(31,59,144,0.35);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 48px;
+    }
+
+    .contact-box p {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .contact-box a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer .logo-text {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: var(--gradient-h);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+
+    footer a {
+      color: #5e6cd3;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gradient-bar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://gleamreply.com" class="logo">Gleam</a>
+    <a href="https://gleamreply.com" class="nav-back">← Back to gleamreply.com</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-inner">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective Date: March 8, 2026 &nbsp;·&nbsp; LucraLab LLC</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#data-collected">Data We Collect</a></li>
+        <li><a href="#how-used">How We Use Your Data</a></li>
+        <li><a href="#third-parties">Third-Party Services</a></li>
+        <li><a href="#no-phi">No PHI — Healthcare Practices</a></li>
+        <li><a href="#data-retention">Data Retention</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#gdpr">GDPR Rights (EEA Residents)</a></li>
+        <li><a href="#ccpa">CCPA Rights (California Residents)</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. Overview -->
+    <div class="policy-section" id="overview">
+      <h2>1. Overview</h2>
+      <p>LucraLab LLC ("LucraLab", "we", "us", or "our") operates the Gleam service available at <strong>gleamreply.com</strong>. Gleam is an AI-powered review response automation tool designed for local businesses, including dental and chiropractic practices.</p>
+      <p>This Privacy Policy explains what personal information we collect, why we collect it, how we use it, and your rights regarding that information. By using Gleam, you agree to the practices described in this policy.</p>
+      <p>If you have questions at any time, contact us at <a href="mailto:james@lucralab.com" style="color: var(--cyan);">james@lucralab.com</a>.</p>
+    </div>
+
+    <!-- 2. Data We Collect -->
+    <div class="policy-section" id="data-collected">
+      <h2>2. Data We Collect</h2>
+
+      <h3>Account Information</h3>
+      <p>When you sign up for Gleam, we collect:</p>
+      <ul>
+        <li><strong>Your name</strong> — to personalize communications and your account</li>
+        <li><strong>Practice name</strong> — to configure your brand voice and Google Business Profile connection</li>
+        <li><strong>Email address</strong> — to send account-related communications, receipts, and alerts</li>
+        <li><strong>Mobile phone number</strong> — to deliver SMS alerts for new reviews that require your approval</li>
+      </ul>
+
+      <h3>Google OAuth Tokens</h3>
+      <p>To connect Gleam to your Google Business Profile, you authorize Gleam via Google's OAuth 2.0 flow. We store the resulting <strong>access and refresh tokens in encrypted form</strong>. These tokens allow Gleam to read your public Google reviews and post AI-generated responses on your behalf. We do not use these tokens to access any other Google services, your Google Drive, Gmail, or any data beyond your Google Business Profile reviews.</p>
+
+      <h3>Google Business Profile Review Data</h3>
+      <p>Gleam reads <strong>publicly visible review data</strong> from your Google Business Profile — specifically, the text and star rating of reviews that members of the public have already chosen to post on Google. We do not access private messages, your Google Ads data, or any internal practice systems.</p>
+
+      <h3>Usage Data</h3>
+      <p>We collect standard service usage information, including:</p>
+      <ul>
+        <li>Log data (IP addresses, browser type, pages visited, timestamps)</li>
+        <li>Feature usage patterns to improve the service</li>
+        <li>Error reports and diagnostic information</li>
+      </ul>
+      <p>This data is used in aggregate to improve Gleam and is not sold or shared with third parties for marketing purposes.</p>
+    </div>
+
+    <!-- 3. How We Use Your Data -->
+    <div class="policy-section" id="how-used">
+      <h2>3. How We Use Your Data</h2>
+      <p>We use the data we collect solely to provide and improve the Gleam service. Specifically:</p>
+      <ul>
+        <li><strong>Monitoring reviews:</strong> Periodically polling your Google Business Profile for new reviews</li>
+        <li><strong>Generating AI responses:</strong> Sending review text to our AI system to generate appropriate responses</li>
+        <li><strong>Posting responses:</strong> Using your authorized Google credentials to post approved responses to Google</li>
+        <li><strong>Sending SMS alerts:</strong> Notifying you via text message when a low-star review requires your approval</li>
+        <li><strong>Billing and account management:</strong> Processing subscription payments and sending account-related emails</li>
+        <li><strong>Service communications:</strong> Sending transactional emails about your account, subscription status, and important updates</li>
+        <li><strong>Service improvement:</strong> Analyzing usage patterns to improve features and reliability</li>
+      </ul>
+      <p>We do not sell your personal information. We do not use your data for advertising targeting. We do not share your data with third parties except as described in Section 4 below.</p>
+    </div>
+
+    <!-- 4. Third Parties -->
+    <div class="policy-section" id="third-parties">
+      <h2>4. Third-Party Services</h2>
+      <p>Gleam relies on the following trusted third-party services to operate. Each is used only for the purpose described:</p>
+
+      <h3>Stripe (Payments)</h3>
+      <p>Subscription billing is processed by <strong>Stripe, Inc.</strong> When you subscribe, your payment information is submitted directly to Stripe — we never store credit card numbers on our servers. Stripe's privacy policy is available at <a href="https://stripe.com/privacy" target="_blank" style="color:var(--cyan);">stripe.com/privacy</a>.</p>
+
+      <h3>SendGrid (Email)</h3>
+      <p>Transactional emails (welcome emails, receipts, account notifications) are sent via <strong>Twilio SendGrid</strong>. Your email address is shared with SendGrid solely to deliver these messages. SendGrid's privacy policy is available at <a href="https://www.twilio.com/en-us/legal/privacy" target="_blank" style="color:var(--cyan);">twilio.com/legal/privacy</a>.</p>
+
+      <h3>Twilio (SMS)</h3>
+      <p>SMS alerts for review approvals are delivered via <strong>Twilio, Inc.</strong> Your phone number is shared with Twilio solely to deliver these messages. Twilio's privacy policy is available at <a href="https://www.twilio.com/en-us/legal/privacy" target="_blank" style="color:var(--cyan);">twilio.com/legal/privacy</a>.</p>
+
+      <h3>Google (OAuth + Google Business Profile API)</h3>
+      <p>Gleam uses <strong>Google's OAuth 2.0</strong> system for authentication and the <strong>Google Business Profile API</strong> to read reviews and post responses. Your use of Google's services is subject to <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google's Privacy Policy</a>.</p>
+
+      <h3>OpenAI (AI Response Generation)</h3>
+      <p>Review text is sent to <strong>OpenAI's API</strong> to generate response drafts. Review text submitted to OpenAI is used only for generating the response and is subject to OpenAI's API data usage policies. We use the API under terms that restrict OpenAI from using submitted data to train their models. OpenAI's privacy policy is available at <a href="https://openai.com/privacy" target="_blank" style="color:var(--cyan);">openai.com/privacy</a>.</p>
+
+      <p>We do not share your personal account information (name, email, phone) with OpenAI. Only the text of reviews (which is already public) is sent for AI processing.</p>
+    </div>
+
+    <!-- 5. No PHI -->
+    <div class="policy-section" id="no-phi">
+      <h2>5. No PHI — Healthcare Practices</h2>
+
+      <div class="callout">
+        <p><strong>Important:</strong> Gleam does not access, store, or process any protected health information (PHI). We only read and respond to reviews that customers have already made public on Google.</p>
+      </div>
+
+      <p>Gleam is not connected to your electronic health records (EHR), practice management software, scheduling system, or any internal patient database. We have no access to patient names, diagnoses, treatment details, insurance information, or any other clinical data.</p>
+      <p>Our AI is explicitly instructed to never acknowledge, reference, or confirm any health-related details in responses — even if a patient mentions clinical specifics in their review. Gleam only engages with the general sentiment of a review, never its medical content.</p>
+      <p>Because Gleam operates exclusively on publicly available review data and does not handle PHI, it does not function as a Business Associate under HIPAA.</p>
+    </div>
+
+    <!-- 6. Data Retention -->
+    <div class="policy-section" id="data-retention">
+      <h2>6. Data Retention</h2>
+      <p>We retain your account data <strong>for as long as your subscription is active</strong>. After you cancel your subscription:</p>
+      <ul>
+        <li>Your account data (name, email, phone, practice name) is retained for <strong>30 days</strong> to allow for reactivation, then permanently deleted</li>
+        <li>Your Google OAuth tokens are revoked and deleted immediately upon cancellation</li>
+        <li>Review data and AI-generated responses cached in our system are deleted within 30 days of cancellation</li>
+        <li>Billing records may be retained for up to 7 years as required by applicable tax and financial regulations</li>
+      </ul>
+      <p>Responses that Gleam has already posted to Google remain on your Google Business Profile — those are public posts on Google's platform, and we have no ability to remove them after posting. If you wish to remove a response, you may do so directly through your Google Business Profile account.</p>
+    </div>
+
+    <!-- 7. Security -->
+    <div class="policy-section" id="security">
+      <h2>7. Security</h2>
+      <p>We take reasonable technical and organizational measures to protect your data:</p>
+      <ul>
+        <li>Google OAuth tokens are stored encrypted at rest using AES-256 encryption</li>
+        <li>All data in transit is protected using TLS 1.2 or higher</li>
+        <li>Access to production systems is restricted to authorized LucraLab personnel</li>
+        <li>We use industry-standard cloud infrastructure with SOC 2-certified providers</li>
+      </ul>
+      <p>No method of transmission or storage is 100% secure. If you believe your account has been compromised, contact us immediately at <a href="mailto:james@lucralab.com" style="color:var(--cyan);">james@lucralab.com</a>.</p>
+    </div>
+
+    <!-- 8. Your Rights -->
+    <div class="policy-section" id="your-rights">
+      <h2>8. Your Rights</h2>
+      <p>You have the following rights with respect to your personal data:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data</li>
+        <li><strong>Deletion:</strong> Request deletion of your personal data (subject to legal retention requirements)</li>
+        <li><strong>Portability:</strong> Request your data in a machine-readable format</li>
+        <li><strong>Revoke Google Authorization:</strong> You can revoke Gleam's access to your Google account at any time through your Google Account settings at <a href="https://myaccount.google.com/permissions" target="_blank" style="color:var(--cyan);">myaccount.google.com/permissions</a></li>
+      </ul>
+      <p>To exercise any of these rights, email <a href="mailto:james@lucralab.com" style="color:var(--cyan);">james@lucralab.com</a>. We will respond within 30 days.</p>
+    </div>
+
+    <!-- 9. GDPR -->
+    <div class="policy-section" id="gdpr">
+      <h2>9. GDPR Rights (EEA Residents)</h2>
+      <p>If you are located in the European Economic Area (EEA), you have additional rights under the General Data Protection Regulation (GDPR):</p>
+      <ul>
+        <li><strong>Right to be Informed:</strong> You have the right to know how your data is collected and used (this policy fulfills that obligation)</li>
+        <li><strong>Right to Object:</strong> You may object to processing of your personal data for direct marketing purposes</li>
+        <li><strong>Right to Restrict Processing:</strong> You may request that we restrict processing of your data in certain circumstances</li>
+        <li><strong>Right to Lodge a Complaint:</strong> You have the right to lodge a complaint with your local data protection authority</li>
+      </ul>
+      <p>Our lawful basis for processing your personal data is <strong>performance of a contract</strong> — we need your data to provide the Gleam service you subscribed to. Where we send you marketing communications, we rely on <strong>legitimate interest</strong> or your explicit <strong>consent</strong>.</p>
+      <p>For GDPR-related requests, contact <a href="mailto:james@lucralab.com" style="color:var(--cyan);">james@lucralab.com</a>.</p>
+    </div>
+
+    <!-- 10. CCPA -->
+    <div class="policy-section" id="ccpa">
+      <h2>10. CCPA Rights (California Residents)</h2>
+      <p>If you are a California resident, the California Consumer Privacy Act (CCPA) grants you the following rights:</p>
+      <ul>
+        <li><strong>Right to Know:</strong> You have the right to know what personal information we collect, use, disclose, and sell</li>
+        <li><strong>Right to Delete:</strong> You have the right to request deletion of your personal information, subject to certain exceptions</li>
+        <li><strong>Right to Opt-Out:</strong> You have the right to opt out of the sale of your personal information — <strong>we do not sell your personal information</strong></li>
+        <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA rights</li>
+      </ul>
+      <p>To exercise your California rights, contact <a href="mailto:james@lucralab.com" style="color:var(--cyan);">james@lucralab.com</a> with "California Privacy Request" in the subject line.</p>
+    </div>
+
+    <!-- 11. Changes -->
+    <div class="policy-section" id="changes">
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. When we make material changes, we will:</p>
+      <ul>
+        <li>Update the "Effective Date" at the top of this page</li>
+        <li>Send an email notification to all active account holders</li>
+      </ul>
+      <p>Your continued use of Gleam after the effective date of any changes constitutes your acceptance of the updated policy. We encourage you to review this policy periodically.</p>
+    </div>
+
+    <!-- 12. Contact -->
+    <div class="policy-section" id="contact">
+      <h2>12. Contact Us</h2>
+      <p>If you have questions, concerns, or requests related to this Privacy Policy or your personal data, please reach out:</p>
+      <div class="contact-box">
+        <p><strong style="color:white;">LucraLab LLC</strong></p>
+        <p>Email: <a href="mailto:james@lucralab.com">james@lucralab.com</a></p>
+        <p>Website: <a href="https://lucralab.com" target="_blank">lucralab.com</a></p>
+        <p style="margin-top:12px; font-size:13px;">We aim to respond to all privacy inquiries within 5 business days.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="gradient-bar"></div>
+  <footer>
+    <div>
+      <div class="logo-text">Gleam</div>
+      <p style="font-size:12px; color:#5e6cd3; margin-top:6px; letter-spacing:2px; text-transform:uppercase; font-weight:500;">A LucraLab Product</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <span style="color:#5e6cd3;"> · </span>
+      <a href="/terms.html">Terms of Service</a>
+      <span style="color:#5e6cd3;"> · </span>
+      <a href="https://www.lucralab.com" target="_blank">lucralab.com</a>
+    </div>
+    <p>© 2026 LucraLab. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
