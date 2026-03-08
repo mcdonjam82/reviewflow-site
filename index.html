@@ -784,8 +784,8 @@
     <div class="cta-inner">
       <h2>Ready to Put Your Reviews on Autopilot?</h2>
       <p>We'll set you up personally. No self-serve complexity. Just fill this out and we'll be in touch within 24 hours.</p>
-      <div class="form-wrap">
-        <form action="mailto:james@lucralab.com" method="post" enctype="text/plain">
+      <div class="form-wrap" id="contact-form-wrap">
+        <form id="contact-form">
           <p style="font-size:12px; color:#5e6cd3; text-align:center; margin-bottom:20px; letter-spacing:1px;">Powered by LucraLab AI</p>
           <div class="form-group">
             <label>Your Name</label>
@@ -813,6 +813,27 @@
           </div>
           <button type="submit" class="form-submit">Get Started →</button>
         </form>
+        <div id="thank-you" style="display:none; text-align:center; padding:24px; color:#07b9fd; font-weight:700; font-size:18px;">
+          ✅ Got it! We'll be in touch within 24 hours.
+        </div>
+        <script>
+          document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            var form = this;
+            var data = {};
+            new FormData(form).forEach(function(v, k) { data[k] = v; });
+            fetch("https://formspree.io/f/xleqejyn", {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: { "Accept": "application/json", "Content-Type": "application/json" }
+            }).then(function(r) {
+              form.style.display = "none";
+              document.getElementById("thank-you").style.display = "block";
+            }).catch(function() {
+              window.location.href = "mailto:james@lucralab.com?subject=Gleam%20Signup%20Request&body=Name:%20" + encodeURIComponent(data.name || "") + "%0APractice:%20" + encodeURIComponent(data.practice || "") + "%0AEmail:%20" + encodeURIComponent(data.email || "") + "%0APhone:%20" + encodeURIComponent(data.phone || "");
+            });
+          });
+        </script>
       </div>
     </div>
   </section>
