@@ -790,6 +790,8 @@
         btn.disabled = true;
         var data = {};
         new FormData(form).forEach(function (v, k) { data[k] = v; });
+        // Ensure checkbox fields are sent as proper booleans (not "on"/"off")
+        form.querySelectorAll('input[type=checkbox]').forEach(function (cb) { data[cb.name] = cb.checked; });
         fetch('https://api.gleamreply.com/signup', {
           method: 'POST',
           body: JSON.stringify(data),
