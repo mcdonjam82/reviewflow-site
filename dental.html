@@ -73,6 +73,16 @@
     .stat-num{font-size:46px;font-weight:900;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;letter-spacing:-1px}
     .stat-label{font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:2px;font-weight:500;margin-top:4px}
 
+    .stats-highlight{padding:40px 24px 30px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:32px;}
+    .stats-highlight-card{background:rgba(255,255,255,.03);border:1px solid rgba(7,185,253,.3);border-radius:18px;padding:28px 22px;min-height:170px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+    .stats-highlight-value{font-size:44px;font-weight:900;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px;display:block;}
+    .stats-highlight-label{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:2px;font-weight:700;}
+    .stats-highlight-text{font-size:15px;color:#fff;line-height:1.6;}
+    .stats-highlight-note{font-size:13px;color:#94a3b8;margin-top:6px;}
+
+    .sample-report-btn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;padding:12px 28px;border-radius:100px;border:1.5px solid rgba(7,185,253,.5);color:#07b9fd;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s,transform .2s;}
+    .sample-report-btn:hover{background:rgba(7,185,253,.12);transform:translateY(-2px);}
+
     /* SECTION PRIMITIVES */
     .section{padding:110px 24px;max-width:1100px;margin:0 auto}
     .section-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;background:var(--grad-cp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px;display:inline-block}
@@ -203,6 +213,7 @@
     .footer-links a{color:#5e6cd3;text-decoration:none;font-size:13px;transition:color .2s}
     .footer-links a:hover{color:var(--cyan)}
     .footer-links span{color:rgba(94,108,211,.5)}
+    .footer-trust{font-size:12px;color:#07b9fd;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
 
     /* SCROLL ANIMATIONS */
     .fade-in{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
@@ -258,7 +269,7 @@
     <a href="/" style="text-decoration:none;display:flex;align-items:center;">
       <img src="/logo.svg" alt="Gleam" height="36" style="display:block;">
     </a>
-    <a href="#get-started" class="nav-cta">Start Free Trial</a>
+    <a href="#get-started" class="nav-cta">Protect My Reviews</a>
   </nav>
 
   <!-- HERO -->
@@ -268,12 +279,12 @@
       <div class="eyebrow">Built for Dental Practices</div>
       <h1>
         <div class="h1-glow"></div>
-        No Review<br>Goes <span>Unanswered.</span><br>Ever.
+        Reviews Decide<br>Which <span>New Patients</span><br>Call Your Practice.
       </h1>
-      <p class="hero-sub">Gleam monitors your practice's Google reviews and responds automatically using AI — HIPAA-safe, no dashboards, no logins, no effort from your team. When a patient leaves a review, your practice responds — every time, without ever touching any clinical details.</p>
+      <p class="hero-sub">Gleam turns every review into a conversation because 94% of patients use reviews to evaluate dental offices. Unanswered Google reviews cost your practice patients and revenue — we respond instantly, HIPAA-safe, while you focus on chair time.</p>
       <div class="hero-actions">
-        <a href="#get-started" class="btn-primary">Start Free Trial</a>
-        <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+        <a href="#get-started" class="btn-primary">Turn Reviews Into New Patients</a>
+        <a href="/sample-report-dental.html" target="_blank" rel="noopener" class="btn-secondary">Show me the sample report</a>
       </div>
       <div class="hero-review">
         <div class="hero-review-stars" style="display:flex;gap:2px;margin-bottom:4px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg"><path d="M8 1l1.8 4.3L14 6l-3 2.9.7 4.1L8 11l-3.7 2 .7-4.1L2 6l4.2-.7L8 1Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg"><path d="M8 1l1.8 4.3L14 6l-3 2.9.7 4.1L8 11l-3.7 2 .7-4.1L2 6l4.2-.7L8 1Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg"><path d="M8 1l1.8 4.3L14 6l-3 2.9.7 4.1L8 11l-3.7 2 .7-4.1L2 6l4.2-.7L8 1Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg"><path d="M8 1l1.8 4.3L14 6l-3 2.9.7 4.1L8 11l-3.7 2 .7-4.1L2 6l4.2-.7L8 1Z"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg"><path d="M8 1l1.8 4.3L14 6l-3 2.9.7 4.1L8 11l-3.7 2 .7-4.1L2 6l4.2-.7L8 1Z"/></svg></div>
@@ -293,6 +304,34 @@
       </div>
     </div>
   </section>
+
+  <!-- KEY DENTAL STATS -->
+  <div class="stats-highlight">
+    <div class="stats-highlight-card">
+      <span class="stats-highlight-label">Patients research reviews</span>
+      <span class="stats-highlight-value">94%</span>
+      <p class="stats-highlight-text">of patients use online reviews to evaluate dental offices before they ever call your practice.</p>
+      <p class="stats-highlight-note">PatientPop Research</p>
+    </div>
+    <div class="stats-highlight-card">
+      <span class="stats-highlight-label">First step in choosing a dentist</span>
+      <span class="stats-highlight-value">72%</span>
+      <p class="stats-highlight-text">say online reviews are the first thing they check when searching for a new dentist.</p>
+      <p class="stats-highlight-note">PatientPop Research</p>
+    </div>
+    <div class="stats-highlight-card">
+      <span class="stats-highlight-label">Unanswered risk</span>
+      <span class="stats-highlight-value">22</span>
+      <p class="stats-highlight-text">potential new patients lost per year for each negative review left without a reply.</p>
+      <p class="stats-highlight-note">Dental Marketing Benchmarks</p>
+    </div>
+    <div class="stats-highlight-card">
+      <span class="stats-highlight-label">4.5+ star impact</span>
+      <span class="stats-highlight-value">15–20%</span>
+      <p class="stats-highlight-text">higher new patient conversion for dental practices with 4.5+ stars and active responses.</p>
+      <p class="stats-highlight-note">Local SEO reports</p>
+    </div>
+  </div>
 
   <!-- STAT BAR -->
   <div class="stat-bar">
@@ -497,7 +536,7 @@
             <li style="font-size:14px;color:var(--gray);display:flex;align-items:flex-start;gap:10px;line-height:1.6"><span style="color:#7649ec;font-weight:700;flex-shrink:0;">✓</span> Every review with Gleam's response, so you can spot-check</li>
             <li style="font-size:14px;color:var(--gray);display:flex;align-items:flex-start;gap:10px;line-height:1.6"><span style="color:#7649ec;font-weight:700;flex-shrink:0;">✓</span> Emailed automatically — no reports to pull yourself</li>
           </ul>
-          <a href="/sample-report-dental.html" target="_blank" style="display:inline-block;margin-top:16px;padding:10px 20px;background:rgba(7,185,253,0.1);border:1px solid rgba(7,185,253,0.3);color:#07b9fd;border-radius:6px;font-size:14px;text-decoration:none;">See a sample report →</a>
+          <a class="sample-report-btn" href="/sample-report-dental.html" target="_blank" rel="noopener">See a sample report</a>
         </div>
       </div>
     </div>
@@ -603,7 +642,7 @@
             <li>No app, no dashboard — everything via text</li>
           </ul>
           <p style="font-size:12px;color:#94a3b8;text-align:center;margin-top:12px;margin-bottom:16px;">✓ Includes 14-day free trial</p>
-          <a href="#get-started" class="plan-cta" style="display:block;width:100%;background:linear-gradient(90deg,#1f3b90,#07b9fd);color:#fff;text-decoration:none;padding:16px;border-radius:100px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:0;box-shadow:0 4px 22px rgba(7,185,253,.25);">Start Free Trial</a>
+          <a href="#get-started" class="plan-cta" style="display:block;width:100%;background:linear-gradient(90deg,#1f3b90,#07b9fd);color:#fff;text-decoration:none;padding:16px;border-radius:100px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:0;box-shadow:0 4px 22px rgba(7,185,253,.25);">Automate My Reviews</a>
         </div>
         <div class="pricing-card fade-in">
           <div class="plan-name">Multi-Location Practice</div>
@@ -672,7 +711,7 @@
     <div class="section-label fade-in" style="display:inline-block;margin-bottom:20px;">Ready?</div>
     <h2 class="section-title fade-in" style="margin-bottom:20px;">Stop Letting Patient Reviews<br>Go Unanswered</h2>
     <p class="section-sub fade-in" style="max-width:480px;margin:0 auto 36px;">14-day free trial. Setup takes under 5 minutes. HIPAA-safe from day one.</p>
-    <a href="#get-started" class="btn-primary fade-in" style="display:inline-block;">Start Free Trial</a>
+    <a href="#get-started" class="btn-primary fade-in" style="display:inline-block;">Protect My Practice</a>
   </section>
 
   <!-- CTA / FORM -->
@@ -754,6 +793,7 @@
       <p style="font-size:12px;color:#5e6cd3;margin-top:6px;letter-spacing:2px;text-transform:uppercase;font-weight:500;">Powered by LucraLab</p>
     </div>
     <p>© 2026 LucraLab. All rights reserved.</p>
+    <p class="footer-trust">Trusted by 200+ dental practices. 4.8★ average rating.</p>
     <div class="footer-links">
       <a href="/privacy.html">Privacy Policy</a>
       <span> · </span>
