@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gleam — How We Handle Negative Reviews</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0d0b1e;color:#e2e8f0}
+    .topbar{height:3px;background:linear-gradient(90deg,#1f3b90,#07b9fd,#7649ec);position:fixed;top:0;left:0;right:0;z-index:99}
+
+    .hero{padding:76px 24px 56px;text-align:center;background:linear-gradient(180deg,#100e26 0%,#0d0b1e 100%);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .hero img{height:32px;margin:0 auto 28px;display:block}
+    .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:#f87171;letter-spacing:.5px;text-transform:uppercase;margin-bottom:22px}
+    .hero .eyebrow::before{content:"";width:7px;height:7px;background:#ef4444;border-radius:50%;animation:blink 1.5s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .hero h1{font-size:clamp(26px,5vw,46px);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.1}
+    .hero h1 em{font-style:normal;background:linear-gradient(90deg,#07b9fd,#7649ec);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{color:#94a3b8;font-size:16px;max-width:560px;margin:0 auto;line-height:1.7}
+
+    .wrap{max-width:860px;margin:0 auto;padding:56px 20px 72px}
+
+    /* How it works strip */
+    .how{display:flex;gap:0;margin-bottom:56px;background:#13112a;border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden}
+    @media(max-width:640px){.how{flex-direction:column}}
+    .how-step{flex:1;padding:22px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;position:relative}
+    .how-step+.how-step::before{content:"→";position:absolute;left:-10px;top:50%;transform:translateY(-50%);color:#334155;font-size:18px;font-weight:700}
+    @media(max-width:640px){.how-step+.how-step::before{content:"↓";left:50%;top:-14px;transform:translateX(-50%)}}
+    .how-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+    .how-icon.red{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25)}
+    .how-icon.yellow{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.25)}
+    .how-icon.cyan{background:rgba(7,185,253,0.1);border:1px solid rgba(7,185,253,0.25)}
+    .how-icon.green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25)}
+    .how-label{font-size:12px;font-weight:700;color:#f1f5f9;letter-spacing:.3px}
+    .how-sub{font-size:11px;color:#475569;line-height:1.5}
+
+    /* Section label */
+    .section-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#475569;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .section-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,0.07)}
+
+    /* Review pair card */
+    .pair{margin-bottom:32px}
+    .star-badge{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;margin-bottom:12px}
+    .star-badge.one{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);color:#f87171}
+    .star-badge.two{background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.25);color:#fb923c}
+    .star-badge.three{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.25);color:#fbbf24}
+
+    /* Google-style review card */
+    .gcard{background:#181630;border:1px solid rgba(239,68,68,0.18);border-radius:12px;padding:18px;margin-bottom:12px;position:relative}
+    .gcard::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(239,68,68,0.5),transparent);border-radius:12px 12px 0 0}
+    .grow{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+    .av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+    .rinfo{flex:1}
+    .rname{font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:3px}
+    .rmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .stars-neg{font-size:14px;letter-spacing:1px}
+    .rdate{font-size:11px;color:#475569}
+    .gbadge{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:4px 9px;font-size:11px;color:#6b7280}
+    .rtext{font-size:13.5px;color:#cbd5e1;line-height:1.75;font-style:italic}
+    .no-text{font-size:13px;color:#475569;font-style:italic}
+
+    /* SMS alert */
+    .sms-alert{background:#0f0e22;border:1px solid rgba(118,73,236,0.25);border-radius:12px;padding:16px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start}
+    .sms-icon{width:36px;height:36px;background:rgba(118,73,236,0.15);border:1px solid rgba(118,73,236,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+    .sms-body{}
+    .sms-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7649ec;margin-bottom:5px}
+    .sms-msg{font-size:12.5px;color:#94a3b8;line-height:1.6;font-family:"SF Mono",Monaco,monospace}
+    .sms-msg strong{color:#c4b5fd}
+
+    /* Gleam response */
+    .gresp{background:rgba(7,185,253,0.05);border:1px solid rgba(7,185,253,0.18);border-radius:12px;padding:18px;position:relative}
+    .gresp::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(7,185,253,0.4),transparent);border-radius:12px 12px 0 0}
+    .glabel{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#07b9fd;margin-bottom:8px}
+    .gtext{font-size:13px;color:#94a3b8;line-height:1.75}
+
+    .connector{display:flex;justify-content:center;align-items:center;height:28px;color:#334155;font-size:18px}
+
+    /* Bottom CTA */
+    .cta{text-align:center;padding:48px 24px;background:#13112a;border:1px solid rgba(255,255,255,0.07);border-radius:16px;margin-top:48px}
+    .cta h2{font-size:24px;font-weight:800;color:#fff;margin-bottom:12px}
+    .cta p{color:#64748b;font-size:14px;max-width:440px;margin:0 auto 24px;line-height:1.7}
+    .btn{display:inline-block;background:linear-gradient(135deg,#1f3b90,#7649ec);color:#fff;font-weight:700;font-size:14px;padding:14px 32px;border-radius:100px;text-decoration:none;letter-spacing:.3px}
+
+    .footer{text-align:center;padding:36px 20px;color:#1e293b;font-size:12px;border-top:1px solid rgba(255,255,255,0.04);margin-top:0}
+  </style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<div class="hero">
+  <img src="https://gleamreply.com/logo.svg" alt="Gleam">
+  <div class="eyebrow">⚠ Negative Review Alert</div>
+  <h1>A 1-star review just hit.<br><em>Here's what Gleam does.</em></h1>
+  <p>Most owners don't find out for days. By then the damage is done. Gleam catches it instantly, drafts a response, and texts you for approval — all before you've finished your morning coffee.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- How it works -->
+  <div class="how">
+    <div class="how-step">
+      <div class="how-icon red">🔍</div>
+      <div class="how-label">Review Detected</div>
+      <div class="how-sub">Gleam polls your Google listing every 30 min</div>
+    </div>
+    <div class="how-step">
+      <div class="how-icon yellow">⚡</div>
+      <div class="how-label">AI Drafts Response</div>
+      <div class="how-sub">GPT-4o writes a professional, empathetic reply</div>
+    </div>
+    <div class="how-step">
+      <div class="how-icon cyan">📱</div>
+      <div class="how-label">You Get a Text</div>
+      <div class="how-sub">Review + draft sent to your phone for approval</div>
+    </div>
+    <div class="how-step">
+      <div class="how-icon green">✅</div>
+      <div class="how-label">Reply APPROVE</div>
+      <div class="how-sub">Response posts to Google. Done.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Real reviews · AI responses · from a real Google Business Profile</div>
+
+
+  <div class="pair">
+    <div class="star-badge one"><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span>&nbsp; 1-star review — rob baird</div>
+
+    <!-- Google review card -->
+    <div class="gcard">
+      <div class="grow">
+        <div class="av" style="background:#64748b">RB</div>
+        <div class="rinfo">
+          <div class="rname">rob baird</div>
+          <div class="rmeta">
+            <span class="stars-neg"><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span></span>
+            <span class="rdate">2 years ago</span>
+          </div>
+        </div>
+        <div class="gbadge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </div>
+      </div>
+      <p class="rtext">&ldquo;They were a nightmare to deal with. Brought my case to another firm, that I won't name, and they were much better than Meridian Injury Law.&rdquo;</p>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- SMS alert -->
+    <div class="sms-alert">
+      <div class="sms-icon">📱</div>
+      <div class="sms-body">
+        <div class="sms-label">Gleam texts the owner</div>
+        <div class="sms-msg">&lt;strong&gt;⚠ New 1★ review — rob baird&lt;/strong&gt;
+"They were a nightmare to deal with. Brought my case to another firm, that I won'..."
+
+Reply APPROVE to post this response, or EDIT [your text] to customize.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- Gleam response -->
+    <div class="gresp">
+      <div class="glabel">
+        <svg width="12" height="12" viewBox="0 0 28 28"><path d="M14,3 L16,11 L24,14 L16,17 L14,25 L12,17 L4,14 L12,11 Z" fill="#07b9fd"/></svg>
+        Gleam&rsquo;s AI-drafted response
+      </div>
+      <p class="gtext">We're sorry to hear about your experience. At Meridian Injury Law, we value feedback as it helps us improve. If there's anything you'd like to discuss further or if you have additional insights to share, please don't hesitate to reach out to us directly. Your opinion is important to us, and we are committed to enhancing our services.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <div class="star-badge one"><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span>&nbsp; 1-star review — Kiah Hoekema</div>
+
+    <!-- Google review card -->
+    <div class="gcard">
+      <div class="grow">
+        <div class="av" style="background:#7c3aed">KH</div>
+        <div class="rinfo">
+          <div class="rname">Kiah Hoekema</div>
+          <div class="rmeta">
+            <span class="stars-neg"><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span></span>
+            <span class="rdate">a year ago</span>
+          </div>
+        </div>
+        <div class="gbadge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </div>
+      </div>
+      <p class="rtext">&ldquo;I am deeply disappointed in them. I was working with them and sending them all the information they needed yet I got nothing in return. I expected this to go better and it did not. It has been two weeks with no responses and they have just stopped communicating.&rdquo;</p>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- SMS alert -->
+    <div class="sms-alert">
+      <div class="sms-icon">📱</div>
+      <div class="sms-body">
+        <div class="sms-label">Gleam texts the owner</div>
+        <div class="sms-msg">&lt;strong&gt;⚠ New 1★ review — Kiah Hoekema&lt;/strong&gt;
+"I am deeply disappointed in them. I was working with them and sending them all t..."
+
+Reply APPROVE to post this response, or EDIT [your text] to customize.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- Gleam response -->
+    <div class="gresp">
+      <div class="glabel">
+        <svg width="12" height="12" viewBox="0 0 28 28"><path d="M14,3 L16,11 L24,14 L16,17 L14,25 L12,17 L4,14 L12,11 Z" fill="#07b9fd"/></svg>
+        Gleam&rsquo;s AI-drafted response
+      </div>
+      <p class="gtext">We're truly sorry to hear about your experience. We strive for open and timely communication and understand your frustration. Please reach out to our office directly at your earliest convenience so we can address your concerns. Your feedback is important to us, and we're committed to improving our services.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <div class="star-badge two"><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span>&nbsp; 2-star review — J G</div>
+
+    <!-- Google review card -->
+    <div class="gcard">
+      <div class="grow">
+        <div class="av" style="background:#475569">JG</div>
+        <div class="rinfo">
+          <div class="rname">J G</div>
+          <div class="rmeta">
+            <span class="stars-neg"><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span></span>
+            <span class="rdate">a year ago</span>
+          </div>
+        </div>
+        <div class="gbadge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </div>
+      </div>
+      <span class="no-text"><em>No written comment — rating only</em></span>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- SMS alert -->
+    <div class="sms-alert">
+      <div class="sms-icon">📱</div>
+      <div class="sms-body">
+        <div class="sms-label">Gleam texts the owner</div>
+        <div class="sms-msg">&lt;strong&gt;⚠ New 2★ review — J G&lt;/strong&gt;
+"[No comment left]"
+
+Reply APPROVE to post this response, or EDIT [your text] to customize.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- Gleam response -->
+    <div class="gresp">
+      <div class="glabel">
+        <svg width="12" height="12" viewBox="0 0 28 28"><path d="M14,3 L16,11 L24,14 L16,17 L14,25 L12,17 L4,14 L12,11 Z" fill="#07b9fd"/></svg>
+        Gleam&rsquo;s AI-drafted response
+      </div>
+      <p class="gtext">We appreciate your feedback and are sorry to hear that your experience did not meet expectations. Your input is important to us, and we would like to learn more about your experience to see how we can improve. Please feel free to reach out directly at your convenience.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <div class="star-badge three"><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span>&nbsp; 3-star review — Marco Magdy</div>
+
+    <!-- Google review card -->
+    <div class="gcard">
+      <div class="grow">
+        <div class="av" style="background:#0f5fc2">MM</div>
+        <div class="rinfo">
+          <div class="rname">Marco Magdy</div>
+          <div class="rmeta">
+            <span class="stars-neg"><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#ef4444">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span></span>
+            <span class="rdate">3 years ago</span>
+          </div>
+        </div>
+        <div class="gbadge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </div>
+      </div>
+      <p class="rtext">&ldquo;Overall I received a settlement that I am happy with. And for that reason I am giving it a 5 star. That being said, I think Meridian Injury Law can do a lot better in terms of communication with their clients.&rdquo;</p>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- SMS alert -->
+    <div class="sms-alert">
+      <div class="sms-icon">📱</div>
+      <div class="sms-body">
+        <div class="sms-label">Gleam texts the owner</div>
+        <div class="sms-msg">&lt;strong&gt;⚠ New 3★ review — Marco Magdy&lt;/strong&gt;
+"Overall I received a settlement that I am happy with. And for that reason I am g..."
+
+Reply APPROVE to post this response, or EDIT [your text] to customize.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <!-- Gleam response -->
+    <div class="gresp">
+      <div class="glabel">
+        <svg width="12" height="12" viewBox="0 0 28 28"><path d="M14,3 L16,11 L24,14 L16,17 L14,25 L12,17 L4,14 L12,11 Z" fill="#07b9fd"/></svg>
+        Gleam&rsquo;s AI-drafted response
+      </div>
+      <p class="gtext">We appreciate your feedback and are pleased to hear that you are satisfied with the settlement. Your comments regarding communication are invaluable, and we will take them to heart as we continually strive to improve our services. Thank you for sharing your thoughts with us. — The Meridian Injury Law, P.A. Team</p>
+    </div>
+  </div>
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Never miss a bad review again.</h2>
+    <p>Gleam watches your Google listing around the clock. When something bad lands, you're the first to know — and the first to respond.</p>
+    <a href="https://gleamreply.com" class="btn">Start free — 14-day trial</a>
+  </div>
+
+</div>
+<div class="footer">Gleam by LucraLab &nbsp;·&nbsp; gleamreply.com</div>
+</body>
+</html>
