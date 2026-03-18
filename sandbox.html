@@ -27,14 +27,14 @@
   .industry-title{font-size:28px;font-weight:900;text-transform:uppercase;letter-spacing:1px}
   .review-group{margin-bottom:48px}
   .star-group-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;padding:8px 20px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-  .pair{background:rgba(21,19,39,.6);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;margin-bottom:20px}
-  .pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-  @media(max-width:768px){.pair-grid{grid-template-columns:1fr}}
-  .col-header{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}
-  .col-header-review{color:#94a3b8}
-  .col-header-gleam{color:#07b9fd}
-  .sms-stack{display:flex;flex-direction:column;gap:10px}
-  /* Review card */
+  
+  
+  @media(max-width:768px){}
+  
+  
+  
+  
+  
   .gcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px}
   .grow{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
   .av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
@@ -44,14 +44,19 @@
   .rdate{font-size:12px;color:var(--gray)}
   .gbadge{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--gray);margin-left:auto}
   .rtext{font-size:13px;color:#cbd5e1;line-height:1.65;font-style:italic}
-  /* SMS */
+  
   .sms-section{display:flex;flex-direction:column;gap:12px}
   .sms-bubble{background:#1e293b;border:1px solid rgba(7,185,253,.2);border-radius:16px 16px 16px 4px;padding:14px 16px;font-size:12px;color:#e2e8f0;line-height:1.65;font-family:"SF Mono",Monaco,monospace;white-space:pre-line}
   .sms-bubble.msg2{border-radius:16px 16px 16px 4px;border-color:rgba(118,73,236,.3);background:#1a1232}
-  /* Gleam response */
+  
   .gresp{background:rgba(7,185,253,.04);border:1px solid rgba(7,185,253,.15);border-radius:14px;padding:18px;margin-top:16px}
   .gresp-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px}
   .gresp-text{font-size:13px;color:#e2e8f0;line-height:1.7}
+
+  /* Two-column review flow layout */
+  .reviews-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;align-items:start}
+  @media(max-width:900px){.reviews-row{grid-template-columns:1fr}}
+  .review-flow{background:rgba(21,19,39,.6);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px}
 </style>
 </head>
 <body>
@@ -78,9 +83,8 @@
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">SK</div>
 <div class="rinfo">
@@ -90,24 +94,21 @@
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Dr. Patel and the entire team were absolutely wonderful. My daughter has always been terrified of the dentist but they made her feel so comfortable and relaxed. The office is spotless, they were on time, and the cleaning was thorough. We've found our dental home!”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Sandra K.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Sandra K.:
 
 "Dr. Patel and the entire team were absolutely wonderful. My daughter has always been terrified of the dentist but they made her feel so comfortable and relaxed...."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "It's wonderful to hear about your positive experience with Dr. Patel and our team. We're delighted that your daughter felt comfortable and relaxed during her visit. Creating a welcoming and reassuring..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">It's wonderful to hear about your positive experience with Dr. Patel and our team. We're delighted that your daughter felt comfortable and relaxed during her visit. Creating a welcoming and reassuring environment is important to us, and we're thrilled to be your chosen dental home. Thank you for your kind words regarding our office and punctuality. We look forward to continuing to care for your family's dental needs. 
 
 — The Sunrise Family Dental Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">MR</div>
 <div class="rinfo">
@@ -117,24 +118,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Great dentist, very thorough exam and cleaning. The hygienist was gentle and explained everything. Only reason I'm not giving 5 stars is the wait time was about 20 minutes past my appointment. But the care itself was excellent.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Mike R.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Mike R.:
 
 "Great dentist, very thorough exam and cleaning. The hygienist was gentle and explained everything. Only reason I'm not giving 5 stars is the wait time was about..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're delighted to hear that you had a positive experience with our team and appreciated the thorough care you received. We understand that wait times can be frustrating, and we're grateful for your p..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're delighted to hear that you had a positive experience with our team and appreciated the thorough care you received. We understand that wait times can be frustrating, and we're grateful for your patience. We're always striving to improve our scheduling processes to better serve our valued patients. Thank you for your feedback and for choosing us for your dental care. We look forward to welcoming you again soon! 
 
 — The Sunrise Family Dental Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">CB</div>
 <div class="rinfo">
@@ -144,21 +143,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Mixed experience. The actual dental work was good but I felt a bit rushed during my appointment. The front desk also had some confusion with my insurance that took a while to sort out. Not bad, just average.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Carla B.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Carla B.:
 
 "Mixed experience. The actual dental work was good but I felt a bit rushed during my appointment. The front desk also had some confusion with my insurance that t..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear that you were satisfied with the dental work. We apologize for any feelings of being rushed and for the confusion with your insurance. Your experience ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear that you were satisfied with the dental work. We apologize for any feelings of being rushed and for the confusion with your insurance. Your experience is important to us, and we'll use your input to improve our services. Thank you for sharing your thoughts, and we hope to make your next visit more seamless. 
 
 — The Sunrise Family Dental Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">TW</div>
 <div class="rinfo">
@@ -168,24 +163,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“I've been coming here for 2 years. Service is fine but recently it feels like they're pushing a lot of add-on treatments. My last visit they recommended $1,200 in optional procedures that a second opinion said weren't necessary. A bit disappointing.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Tom W.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Tom W.:
 
 "I've been coming here for 2 years. Service is fine but recently it feels like they're pushing a lot of add-on treatments. My last visit they recommended $1,200 ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We genuinely appreciate your feedback and your loyalty over the past two years. We're sorry to hear about your recent experience and understand your concerns about recommended treatments. Our goal is ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We genuinely appreciate your feedback and your loyalty over the past two years. We're sorry to hear about your recent experience and understand your concerns about recommended treatments. Our goal is to provide comprehensive care and ensure all options are clear, but we value your perspective and will take it into consideration to improve our communication. Please feel free to reach out if you'd like to discuss this further. Your trust is important to us. 
 
 — The Sunrise Family Dental Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">JM</div>
 <div class="rinfo">
@@ -195,21 +189,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Billing is a mess. I paid my copay at the visit and then got a bill 3 months later for the same amount saying insurance didn't cover it. After 4 phone calls I still haven't gotten this resolved. The dental work itself was fine but the admin side needs serious help.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Jessica M.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Jessica M.:
 
 "Billing is a mess. I paid my copay at the visit and then got a bill 3 months later for the same amount saying insurance didn't cover it. After 4 phone calls I s..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're sorry to hear about your experience with our billing process. We understand how important a smooth administrative experience is and we aim to resolve such issues promptly. Please reach out to ou..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're sorry to hear about your experience with our billing process. We understand how important a smooth administrative experience is and we aim to resolve such issues promptly. Please reach out to our office manager directly, and we'll prioritize resolving this matter for you. We appreciate your patience and feedback as it helps us improve our services. 
 
 — The Sunrise Family Dental Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">DL</div>
 <div class="rinfo">
@@ -219,21 +209,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Had a crown done here and it fell off after 4 months. When I called they said I'd have to pay for a new appointment to be seen about it. For a $1,400 crown that lasted 4 months this is unacceptable. Still waiting for a resolution.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Derek L.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Derek L.:
 
 "Had a crown done here and it fell off after 4 months. When I called they said I'd have to pay for a new appointment to be seen about it. For a $1,400 crown that..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your recent experience. We understand how frustrating it can be when expectations aren't met. Please reach out to our office directly so we can address your concerns an..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your recent experience. We understand how frustrating it can be when expectations aren't met. Please reach out to our office directly so we can address your concerns and work towards a resolution that you find satisfactory. Your satisfaction is important to us, and we want to ensure that you receive the care and service you deserve. 
 
 — The Sunrise Family Dental Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">NP</div>
 <div class="rinfo">
@@ -243,24 +229,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The office is always overbooked. I had a 9am appointment and didn't get seen until 9:45. This has happened every single time. I like my dentist but the scheduling system here is broken.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Nina P.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Nina P.:
 
 "The office is always overbooked. I had a 9am appointment and didn't get seen until 9:45. This has happened every single time. I like my dentist but the scheduli..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for any inconvenience caused by your wait time. We strive to provide each patient with the best possible care, and we're sorry to hear that our scheduling has fallen short of yo..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for any inconvenience caused by your wait time. We strive to provide each patient with the best possible care, and we're sorry to hear that our scheduling has fallen short of your expectations. Your feedback is invaluable, and we'll use it to improve our scheduling process and reduce wait times. We're glad to hear you like your dentist, and we hope to make your future visits more satisfactory. Thank you for bringing this to our attention. 
 
 — The Sunrise Family Dental Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">RH</div>
 <div class="rinfo">
@@ -270,21 +255,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They messed up my filling and I had to go to an emergency dentist the same night because of severe pain. When I called to let them know, they were dismissive and told me to take Advil. I will never come back here and I'm looking into my legal options.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Robert H.:
+</div><div class="sms-bubble">⭐ 1★ from Robert H.:
 
 "They messed up my filling and I had to go to an emergency dentist the same night because of severe pain. When I called to let them know, they were dismissive an..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We are truly sorry to hear about your experience. Your comfort and satisfaction are important to us, and it's concerning to learn that we didn't meet your expectations. We want to address this matter ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We are truly sorry to hear about your experience. Your comfort and satisfaction are important to us, and it's concerning to learn that we didn't meet your expectations. We want to address this matter and ensure it doesn't happen again. Please reach out to our office directly so we can better understand your situation and discuss how we can assist you further. Your feedback is invaluable in helping us improve our services.
 
 — The Sunrise Family Dental Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">AT</div>
 <div class="rinfo">
@@ -294,21 +275,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Absolutely terrible experience. The dentist was rough and dismissive when I expressed pain during a procedure. I had to tell them to stop multiple times. No empathy, no apology. I cried in the car on the way home.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Alicia T.:
+</div><div class="sms-bubble">⭐ 1★ from Alicia T.:
 
 "Absolutely terrible experience. The dentist was rough and dismissive when I expressed pain during a procedure. I had to tell them to stop multiple times. No emp..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. Your comfort and care are extremely important to us, and it’s concerning to learn that we didn’t meet those expectations. We take feedback seriously an..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. Your comfort and care are extremely important to us, and it’s concerning to learn that we didn’t meet those expectations. We take feedback seriously and would appreciate the opportunity to discuss this further. Please consider reaching out to our office so we can address your concerns and work towards regaining your trust. 
 
 — The Sunrise Family Dental Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">BO</div>
 <div class="rinfo">
@@ -318,19 +295,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Waited 45 minutes past my appointment with no explanation, then they told me they had to reschedule because the dentist had to leave. No call beforehand, no offer to reschedule at no cost, nothing. Completely disrespectful of my time.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Brian O.:
+</div><div class="sms-bubble">⭐ 1★ from Brian O.:
 
 "Waited 45 minutes past my appointment with no explanation, then they told me they had to reschedule because the dentist had to leave. No call beforehand, no off..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your recent experience. We understand how valuable your time is, and this situation does not reflect our commitment to providing respectful and timely care. We apprecia..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your recent experience. We understand how valuable your time is, and this situation does not reflect our commitment to providing respectful and timely care. We appreciate your feedback, as it helps us improve our service. Please feel free to reach out to our office directly, so we can work towards making this right for you. Your satisfaction is important to us, and we hope to have the opportunity to serve you better in the future. 
 
 — The Sunrise Family Dental Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <div class="industry-panel" id="panel-legal">
 <div class="industry-header">
@@ -339,9 +314,8 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">DC</div>
 <div class="rinfo">
@@ -351,24 +325,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“After my car accident I didn't know where to turn. Meridian took my case and fought hard for me. They kept me informed every step of the way and got me a settlement that covered all my medical bills and then some. The whole team was responsive and genuinely cared. Highly recommend.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from David C.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from David C.:
 
 "After my car accident I didn't know where to turn. Meridian took my case and fought hard for me. They kept me informed every step of the way and got me a settle..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're so pleased to hear about your positive experience with our team. It's wonderful to know that you felt supported and informed throughout the process. Our goal is to ensure that everyone receives ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're so pleased to hear about your positive experience with our team. It's wonderful to know that you felt supported and informed throughout the process. Our goal is to ensure that everyone receives the care and attention they deserve. Thank you for recommending us and for sharing your kind words. We wish you all the best moving forward. 
 
 — The Meridian Injury Law Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">PN</div>
 <div class="rinfo">
@@ -378,24 +349,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Overall a good experience. My attorney was knowledgeable and we got a fair settlement. The process took longer than I expected but I understand that's often out of their control. Communication could have been slightly better — I sometimes had to follow up to get updates.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Priya N.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Priya N.:
 
 "Overall a good experience. My attorney was knowledgeable and we got a fair settlement. The process took longer than I expected but I understand that's often out..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're glad to hear that you found the experience positive and appreciated the knowledge of your attorney. We understand the importance of timely communication and are always striving to improve in thi..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're glad to hear that you found the experience positive and appreciated the knowledge of your attorney. We understand the importance of timely communication and are always striving to improve in this area. Your feedback is invaluable in helping us enhance our services. Thank you for sharing your thoughts, and we wish you all the best moving forward. 
 
 — The Meridian Injury Law Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">JF</div>
 <div class="rinfo">
@@ -405,21 +374,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They took my case and did get me a settlement. However I felt like I was just a number at times. My calls weren't always returned same-day and I had to push to get updates. The outcome was acceptable but the experience could have been more personalized.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from James F.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from James F.:
 
 "They took my case and did get me a settlement. However I felt like I was just a number at times. My calls weren't always returned same-day and I had to push to ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear that the outcome met your expectations. We aim to provide attentive service and regret if our communication fell short during your experience. Your ins..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear that the outcome met your expectations. We aim to provide attentive service and regret if our communication fell short during your experience. Your insights are invaluable as we continually strive to enhance our client interactions. Thank you for sharing your thoughts with us. 
 
 — The Meridian Injury Law Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">HM</div>
 <div class="rinfo">
@@ -429,22 +394,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Middle of the road. The attorneys are clearly experienced but I found the intake process confusing and the fee structure wasn't fully explained upfront. I'd recommend getting clarity on all costs before signing. Result was okay.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Heather M.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Heather M.:
 
 "Middle of the road. The attorneys are clearly experienced but I found the intake process confusing and the fee structure wasn't fully explained upfront. I'd rec..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear you found our team experienced. We're sorry to learn about the confusion you experienced during the intake process and regarding our fee structure. We ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear you found our team experienced. We're sorry to learn about the confusion you experienced during the intake process and regarding our fee structure. We strive to ensure transparency and clarity, and your input is invaluable in helping us improve. Thank you for sharing your thoughts, and we hope to create a more seamless experience in the future. — The Meridian Injury Law Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">CV</div>
 <div class="rinfo">
@@ -454,21 +418,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Very disappointed with the lack of communication. My case went 3 months with no updates unless I initiated contact. When I asked to speak with my actual attorney I kept getting passed to a paralegal. For the fees charged I expected more direct attention.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Carlos V.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Carlos V.:
 
 "Very disappointed with the lack of communication. My case went 3 months with no updates unless I initiated contact. When I asked to speak with my actual attorne..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We genuinely regret to hear about your experience with communication. It's important to us that everyone feels informed and supported throughout their journey with us. Your feedback is invaluable, and..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We genuinely regret to hear about your experience with communication. It's important to us that everyone feels informed and supported throughout their journey with us. Your feedback is invaluable, and we are committed to reviewing our processes to ensure better communication in the future. If you have any further concerns or would like to discuss this matter, please don’t hesitate to reach out directly. 
 
 — The Meridian Injury Law Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1d4ed8">TR</div>
 <div class="rinfo">
@@ -478,21 +438,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They settled my case for less than I believe it was worth. When I pushed back they were dismissive and said 'take it or leave it.' Felt like they just wanted to close the case quickly. Not impressed.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Tiffany R.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Tiffany R.:
 
 "They settled my case for less than I believe it was worth. When I pushed back they were dismissive and said 'take it or leave it.' Felt like they just wanted to..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We genuinely value your feedback and are sorry to hear you were not satisfied with your experience. We strive to ensure every individual feels heard and supported throughout their journey with us. You..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We genuinely value your feedback and are sorry to hear you were not satisfied with your experience. We strive to ensure every individual feels heard and supported throughout their journey with us. Your comments are important, and we will use them to improve our communication and service. If you wish to share more about your experience, please feel free to reach out to us directly. 
 
 — The Meridian Injury Law Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">SW</div>
 <div class="rinfo">
@@ -502,24 +458,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Signed with them and then heard almost nothing for months. The office staff is friendly but the actual attorneys are impossible to reach directly. I ended up hiring another firm to finish what they started.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Samuel W.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Samuel W.:
 
 "Signed with them and then heard almost nothing for months. The office staff is friendly but the actual attorneys are impossible to reach directly. I ended up hi..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're sorry to hear about your experience and appreciate your feedback. Our team strives to maintain open communication and provide attentive service. Your comments highlight areas where we can improv..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're sorry to hear about your experience and appreciate your feedback. Our team strives to maintain open communication and provide attentive service. Your comments highlight areas where we can improve, and we take them seriously. If there's anything more you'd like to discuss, please feel free to reach out. We wish you all the best moving forward. 
 
 — The Meridian Injury Law Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">AG</div>
 <div class="rinfo">
@@ -529,21 +484,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They dropped my case after 8 months without warning. Just an email saying they were 'unable to continue representation.' No explanation, no referral, nothing. I had to start over completely. This caused enormous stress during an already difficult time.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Amanda G.:
+</div><div class="sms-bubble">⭐ 1★ from Amanda G.:
 
 "They dropped my case after 8 months without warning. Just an email saying they were 'unable to continue representation.' No explanation, no referral, nothing. I..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. We understand how challenging and stressful such situations can be. Clear communication is important to us, and the feelings you've expressed are taken..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. We understand how challenging and stressful such situations can be. Clear communication is important to us, and the feelings you've expressed are taken seriously. If you'd like to discuss your concerns further, please feel free to reach out directly. We value feedback as it helps us improve. Wishing you the best moving forward.
 
 — The Meridian Injury Law Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">MJ</div>
 <div class="rinfo">
@@ -553,21 +504,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Promised results they couldn't deliver. My case dragged on for two years with nothing to show for it. Every time I called I got a different story. Finally switched firms and got a settlement within 6 months. Wish I had done that sooner.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Marcus J.:
+</div><div class="sms-bubble">⭐ 1★ from Marcus J.:
 
 "Promised results they couldn't deliver. My case dragged on for two years with nothing to show for it. Every time I called I got a different story. Finally switc..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're genuinely sorry to hear about your experience and understand how frustrating it must have been for you. Our team strives to provide clear communication and effective service, and your feedback i..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're genuinely sorry to hear about your experience and understand how frustrating it must have been for you. Our team strives to provide clear communication and effective service, and your feedback is important as we continually work to improve. We wish you the best in your future endeavors and hope you have found resolution. 
 
 — The Meridian Injury Law Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1d4ed8">RK</div>
 <div class="rinfo">
@@ -577,19 +524,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“I was told my case was strong and they were confident. Then suddenly they stopped returning calls. After two months of silence I found out they had closed my case without telling me. Incredibly unprofessional. I'm consulting with a legal malpractice attorney.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Rachel K.:
+</div><div class="sms-bubble">⭐ 1★ from Rachel K.:
 
 "I was told my case was strong and they were confident. Then suddenly they stopped returning calls. After two months of silence I found out they had closed my ca..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. Clear communication is something we strive for, and it’s concerning to hear your feedback. We value the opportunity to address any concerns and improve..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. Clear communication is something we strive for, and it’s concerning to hear your feedback. We value the opportunity to address any concerns and improve our services. If you’re open to it, please reach out to us directly so we can better understand your experience and make things right. Your feedback is important to us. 
 
 — The Meridian Injury Law Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <div class="industry-panel" id="panel-hvac">
 <div class="industry-header">
@@ -598,9 +543,8 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">LH</div>
 <div class="rinfo">
@@ -610,24 +554,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Our AC went out on the hottest day of the year and Pacific Air had someone out within 2 hours. The tech was professional, explained exactly what was wrong, and had it fixed fast. Fair pricing, no surprise charges. This is our go-to HVAC company from now on.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Linda H.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Linda H.:
 
 "Our AC went out on the hottest day of the year and Pacific Air had someone out within 2 hours. The tech was professional, explained exactly what was wrong, and ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We’re thrilled to hear about your positive experience, especially during such a critical time! Our team understands the urgency of AC issues on hot days, and we're glad our technician could swiftly re..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We’re thrilled to hear about your positive experience, especially during such a critical time! Our team understands the urgency of AC issues on hot days, and we're glad our technician could swiftly restore your comfort. It's wonderful to know you found our pricing fair and transparent. We’re honored to be your go-to HVAC company and look forward to serving you in the future. 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">GP</div>
 <div class="rinfo">
@@ -637,24 +578,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Good service overall. The technician was knowledgeable and fixed our furnace issue. The only reason I'm not giving 5 stars is the scheduling window was quite large (8am-5pm) so I had to take a whole day off work. Wish they had tighter windows.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Gary P.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Gary P.:
 
 "Good service overall. The technician was knowledgeable and fixed our furnace issue. The only reason I'm not giving 5 stars is the scheduling window was quite la..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're delighted to hear that our technician was able to resolve your furnace issue effectively. We understand the inconvenience of a broad scheduling window and appreciate your feedback about it. We'r..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're delighted to hear that our technician was able to resolve your furnace issue effectively. We understand the inconvenience of a broad scheduling window and appreciate your feedback about it. We're actively working on ways to provide more precise appointment times in the future to better accommodate our customers' schedules. Thank you for choosing Pacific Air Systems, and we hope to serve you even better next time! 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">DC</div>
 <div class="rinfo">
@@ -664,21 +603,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Service was okay. Fixed the issue but felt like the tech was in a hurry. He didn't leave time to explain what had caused the problem or how to prevent it. The unit works now so I can't complain too much but it wasn't a great experience.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Denise C.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Denise C.:
 
 "Service was okay. Fixed the issue but felt like the tech was in a hurry. He didn't leave time to explain what had caused the problem or how to prevent it. The u..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear your unit is working again. We’re sorry to learn that the visit felt rushed and that our technician didn’t spend enough time explaining the issue and p..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear your unit is working again. We’re sorry to learn that the visit felt rushed and that our technician didn’t spend enough time explaining the issue and prevention tips. We strive to ensure every service is thorough and informative. Your experience is important to us, and we'll address this with our team to improve our service. If you have any further questions or need clarification, please don't hesitate to reach out. 
 
 — The Pacific Air Systems Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">PN</div>
 <div class="rinfo">
@@ -688,24 +623,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Came out for annual maintenance. Did the job but the tech was on his phone a lot during the inspection which I found unprofessional. Also quoted me for parts that a second opinion said weren't needed yet. Work out the service was fine, trust factor is lower.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Phil N.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Phil N.:
 
 "Came out for annual maintenance. Did the job but the tech was on his phone a lot during the inspection which I found unprofessional. Also quoted me for parts th..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and apologize for any inconvenience during your recent maintenance visit. It's important to us that our technicians focus on providing undivided attention and accurate asse..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and apologize for any inconvenience during your recent maintenance visit. It's important to us that our technicians focus on providing undivided attention and accurate assessments. We'll review this situation internally to ensure we maintain our high standards of professionalism and trust. If you have any further concerns or need assistance, please feel free to reach out. Your satisfaction is important to us, and we hope to earn back your confidence in our services. 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">KS</div>
 <div class="rinfo">
@@ -715,21 +649,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The tech was friendly but misdiagnosed our problem. Charged us $280 for a part that didn't fix the issue. Then quoted another $400 for a 'real fix.' Felt like we were being worked over. Got a second opinion and found the real issue for $150.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Karen S.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Karen S.:
 
 "The tech was friendly but misdiagnosed our problem. Charged us $280 for a part that didn't fix the issue. Then quoted another $400 for a 'real fix.' Felt like w..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience and any frustration it caused. It's our goal to provide accurate and effective solutions, and it appears we fell short. We appreciate your feedback and ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience and any frustration it caused. It's our goal to provide accurate and effective solutions, and it appears we fell short. We appreciate your feedback and would like to address this matter further. Please reach out to our customer service team so we can make this right for you. We value your trust and hope to have the opportunity to regain your confidence in our services. 
 
 — The Pacific Air Systems Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">JM</div>
 <div class="rinfo">
@@ -739,21 +669,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Waited 5 days for a tech to come out during a heat wave. When they finally came, they didn't have the right part and had to reschedule. Another 3 days. 8 days total without AC in 95 degree heat. Unacceptable.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Jason M.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Jason M.:
 
 "Waited 5 days for a tech to come out during a heat wave. When they finally came, they didn't have the right part and had to reschedule. Another 3 days. 8 days t..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for the inconvenience you experienced. We understand how crucial it is to have a functioning AC, especially during a heat wave. Your feedback is important to us, and we're revie..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for the inconvenience you experienced. We understand how crucial it is to have a functioning AC, especially during a heat wave. Your feedback is important to us, and we're reviewing our processes to improve response times and ensure our technicians are better equipped. We truly appreciate your patience and hope to regain your trust in our services. Please don't hesitate to contact us directly if there's anything more we can do for you. 
 
 — The Pacific Air Systems Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">DW</div>
 <div class="rinfo">
@@ -763,24 +689,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Installed a new unit last year and it's already having issues. Getting them back out under warranty has been a nightmare. Three voicemails, two emails, still waiting for a callback two weeks later. Great when they want your money, invisible after.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Donna W.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Donna W.:
 
 "Installed a new unit last year and it's already having issues. Getting them back out under warranty has been a nightmare. Three voicemails, two emails, still wa..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be lo..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be looking into this matter immediately to ensure it is resolved. Please reach out directly at [Contact Information], and we'll prioritize your request to make things right. Thank you for bringing this to our attention. 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">TB</div>
 <div class="rinfo">
@@ -790,21 +715,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Tech left a mess in my attic and didn't clean up. Discovered later he had incorrectly installed a component that caused carbon monoxide to vent into our living space. We could have been seriously hurt. Do NOT use this company.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Tony B.:
+</div><div class="sms-bubble">⭐ 1★ from Tony B.:
 
 "Tech left a mess in my attic and didn't clean up. Discovered later he had incorrectly installed a component that caused carbon monoxide to vent into our living ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for the distress and inconvenience you've experienced. Your safety is our top priority, and it's deeply concerning to hear about this issue. Please contact us immediately so we ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for the distress and inconvenience you've experienced. Your safety is our top priority, and it's deeply concerning to hear about this issue. Please contact us immediately so we can address this situation and ensure your home is safe. We are committed to making this right and preventing such incidents in the future. Your feedback is invaluable in helping us improve our services. 
 
 — The Pacific Air Systems Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">CF</div>
 <div class="rinfo">
@@ -814,21 +735,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Quoted $800, billed $1,450. No call before the extra charges, just a bill that showed up after the fact. When I disputed it they threatened collections. Stay away — get everything in writing before they touch anything.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Cheryl F.:
+</div><div class="sms-bubble">⭐ 1★ from Cheryl F.:
 
 "Quoted $800, billed $1,450. No call before the extra charges, just a bill that showed up after the fact. When I disputed it they threatened collections. Stay aw..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. It’s never our intention to cause frustration or surprise with billing. We strive for clear communication and transparency, and it seems we fell short ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. It’s never our intention to cause frustration or surprise with billing. We strive for clear communication and transparency, and it seems we fell short this time. We value your feedback and would like to discuss this matter further to ensure a fair resolution. Please contact our office directly so we can address your concerns promptly. 
 
 — The Pacific Air Systems Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">VA</div>
 <div class="rinfo">
@@ -838,19 +755,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Took 4 weeks to get a new unit installed. During that time they cancelled 3 appointments with less than an hour's notice. I missed work each time. When I complained the manager was dismissive and condescending. Terrible customer service from top to bottom.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Victor A.:
+</div><div class="sms-bubble">⭐ 1★ from Victor A.:
 
 "Took 4 weeks to get a new unit installed. During that time they cancelled 3 appointments with less than an hour's notice. I missed work each time. When I compla..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for the inconvenience you experienced with our services. We understand how frustrating it must have been to face multiple cancellations and the impact it had on your schedule. T..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for the inconvenience you experienced with our services. We understand how frustrating it must have been to face multiple cancellations and the impact it had on your schedule. This is not the level of service we strive to provide. Your feedback about the communication and interaction with our team is invaluable, and we are taking steps to ensure this does not happen in the future. Please feel free to reach out to us directly so we can address your concerns more thoroughly. 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <div class="industry-panel" id="panel-auto">
 <div class="industry-header">
@@ -859,9 +774,8 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">ML</div>
 <div class="rinfo">
@@ -871,24 +785,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“I've been burned by mechanics before so I was nervous bringing my car in. Coastal Auto Care completely changed my mind. They showed me exactly what was wrong, gave me an honest quote, and did the work for less than expected. The car drives like new. Finally found a shop I can trust.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Monica L.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Monica L.:
 
 "I've been burned by mechanics before so I was nervous bringing my car in. Coastal Auto Care completely changed my mind. They showed me exactly what was wrong, g..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "It's wonderful to hear that we could change your perspective on auto care. Providing transparency and honest pricing is our priority, and we're thrilled that your car is now driving like new. Building..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">It's wonderful to hear that we could change your perspective on auto care. Providing transparency and honest pricing is our priority, and we're thrilled that your car is now driving like new. Building trust with our customers is what we strive for, and we're glad to have earned yours. Thank you for giving us the opportunity to serve you. We look forward to being your trusted shop for future needs. 
 
 — The Coastal Auto Care Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">RT</div>
 <div class="rinfo">
@@ -898,24 +809,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Really good shop. Honest diagnostics and fair pricing. Dropped off my car at 8am and it was ready by noon. Took a star off because the waiting area is pretty basic — no wifi, no coffee. But the service itself was excellent.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Ryan T.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Ryan T.:
 
 "Really good shop. Honest diagnostics and fair pricing. Dropped off my car at 8am and it was ready by noon. Took a star off because the waiting area is pretty ba..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're delighted to hear you appreciated our honest diagnostics and fair pricing. Speedy service is what we strive for, and we're glad we met your expectations in that regard. We appreciate your feedba..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're delighted to hear you appreciated our honest diagnostics and fair pricing. Speedy service is what we strive for, and we're glad we met your expectations in that regard. We appreciate your feedback about the waiting area and will take it into consideration as we work to enhance our customer experience. Your insights help us improve, and we’re grateful for your support. Looking forward to serving you again in the future! 
 
 — The Coastal Auto Care Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">SP</div>
 <div class="rinfo">
@@ -925,21 +834,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The work done was fine and the price was fair. But they had my car for 3 days for what I expected to be a same-day fix. Communication during that time was sparse — I had to call them to get updates. Could be better organized.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Susan P.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Susan P.:
 
 "The work done was fine and the price was fair. But they had my car for 3 days for what I expected to be a same-day fix. Communication during that time was spars..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear you found our work satisfactory and pricing fair. We apologize for the delay and the lack of communication during your repair. We understand how import..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear you found our work satisfactory and pricing fair. We apologize for the delay and the lack of communication during your repair. We understand how important timely updates are and are actively working on improving our communication process to better serve our customers. Thank you for bringing this to our attention. We hope to provide a more seamless experience for you in the future. 
 
 — The Coastal Auto Care Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">KD</div>
 <div class="rinfo">
@@ -949,24 +854,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Mixed feelings. The mechanic fixed the issue but when I picked up my car there was grease on my door handle and seat. Not a big deal but shows a lack of care. The actual repair work was solid though.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Kevin D.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Kevin D.:
 
 "Mixed feelings. The mechanic fixed the issue but when I picked up my car there was grease on my door handle and seat. Not a big deal but shows a lack of care. T..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are glad to hear the repair work met your expectations. However, we're sorry to hear about the grease on your door handle and seat. This is not reflective of our standa..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are glad to hear the repair work met your expectations. However, we're sorry to hear about the grease on your door handle and seat. This is not reflective of our standards, and we'll address it with our team to ensure greater attention to detail in the future. Your experience is important to us, and we hope to provide a more seamless service next time. 
 
 — The Coastal Auto Care Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">NC</div>
 <div class="rinfo">
@@ -976,21 +880,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They found the issue but the quote was way higher than 3 other shops. When I brought up the other quotes they said they 'couldn't be responsible for inferior work done elsewhere.' Really off-putting attitude. Took my car somewhere else.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Natalie C.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Natalie C.:
 
 "They found the issue but the quote was way higher than 3 other shops. When I brought up the other quotes they said they 'couldn't be responsible for inferior wo..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We apologize for your recent experience. We aim to provide quality service and transparent pricing, and we're sorry if our explanation came across as dismissive. We value your feedback and will use it..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We apologize for your recent experience. We aim to provide quality service and transparent pricing, and we're sorry if our explanation came across as dismissive. We value your feedback and will use it to improve our communication. If you have any further concerns or questions, please reach out directly. We hope to have the opportunity to serve you better in the future. 
 
 — The Coastal Auto Care Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">CA</div>
 <div class="rinfo">
@@ -1000,21 +900,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Had my brakes done here. Left feeling fine but a month later the same grinding noise came back. Brought it in and they said the rotors were 'just fine' when they clearly weren't. Had to go to another shop to actually get it fixed properly.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Chris A.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Chris A.:
 
 "Had my brakes done here. Left feeling fine but a month later the same grinding noise came back. Brought it in and they said the rotors were 'just fine' when the..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We genuinely regret to hear about your experience with the brake service. It's concerning that the issue wasn't resolved during your initial visit. We strive for thorough and accurate repairs, and it'..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We genuinely regret to hear about your experience with the brake service. It's concerning that the issue wasn't resolved during your initial visit. We strive for thorough and accurate repairs, and it's clear we missed the mark this time. Please reach out to us directly, as we'd like to understand more about what happened and see if there's anything we can do to make it right. Your feedback is invaluable in helping us improve our services.
 
 — The Coastal Auto Care Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">BK</div>
 <div class="rinfo">
@@ -1024,24 +920,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Quoted one price on the phone and charged me 40% more when I picked up. Said 'the labor took longer than expected' which is not how estimates work. Nobody called to get approval before going over. Felt taken advantage of.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Beth K.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Beth K.:
 
 "Quoted one price on the phone and charged me 40% more when I picked up. Said 'the labor took longer than expected' which is not how estimates work. Nobody calle..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We apologize for the confusion and frustration you experienced with your recent service. It's crucial for us to provide accurate estimates and clear communication throughout the process. We understand..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We apologize for the confusion and frustration you experienced with your recent service. It's crucial for us to provide accurate estimates and clear communication throughout the process. We understand that unexpected changes can be disappointing, especially without prior notification. Please reach out to us directly so we can address this issue and work towards a resolution. Your feedback is invaluable in helping us improve our service and restore your trust. 
 
 — The Coastal Auto Care Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">HN</div>
 <div class="rinfo">
@@ -1051,21 +946,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They broke my side mirror while my car was in for an oil change and tried to deny it. I had photos showing it was intact when I dropped it off. Took 3 weeks of arguing and a BBB complaint to get a partial reimbursement. Would not recommend to anyone.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Howard N.:
+</div><div class="sms-bubble">⭐ 1★ from Howard N.:
 
 "They broke my side mirror while my car was in for an oil change and tried to deny it. I had photos showing it was intact when I dropped it off. Took 3 weeks of ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry for the frustration and inconvenience you experienced. It's clear we didn't meet our usual standards of service, and we regret how this situation was handled. We value transparency a..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry for the frustration and inconvenience you experienced. It's clear we didn't meet our usual standards of service, and we regret how this situation was handled. We value transparency and customer satisfaction, and we're taking steps to ensure incidents like this don't happen in the future. If there's anything more we can do to make this right, please reach out to us directly. Your feedback is important and helps us improve. 
 
 — The Coastal Auto Care Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">AR</div>
 <div class="rinfo">
@@ -1075,21 +966,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Worst experience of my life with a mechanic. Took my car in for a check engine light. They 'fixed' it for $600. Light came back on 2 days later. Took it back and they said it was a 'different problem' and wanted another $400. This is a scam.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Angela R.:
+</div><div class="sms-bubble">⭐ 1★ from Angela R.:
 
 "Worst experience of my life with a mechanic. Took my car in for a check engine light. They 'fixed' it for $600. Light came back on 2 days later. Took it back an..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for the inconvenience and frustration you experienced. It's important to us that we resolve this issue and restore your trust in our service. Our team is committed to providing ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for the inconvenience and frustration you experienced. It's important to us that we resolve this issue and restore your trust in our service. Our team is committed to providing thorough and honest assessments, and we regret that we fell short in this instance. Please contact us directly so we can address your concerns and find a satisfactory resolution. Your feedback is crucial in helping us improve. 
 
 — The Coastal Auto Care Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">CS</div>
 <div class="rinfo">
@@ -1099,19 +986,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“My car sat in their lot for 5 days with no work done. Every time I called I got 'we'll get to it tomorrow.' Finally went in person and the service manager was rude about it. Picked up my car unrepaired and took it to a competitor who finished the job in 4 hours.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Craig S.:
+</div><div class="sms-bubble">⭐ 1★ from Craig S.:
 
 "My car sat in their lot for 5 days with no work done. Every time I called I got 'we'll get to it tomorrow.' Finally went in person and the service manager was r..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're genuinely sorry to hear about your experience with us. It's important that our customers feel respected and receive timely service, and it seems we fell short in your case. We appreciate your fe..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're genuinely sorry to hear about your experience with us. It's important that our customers feel respected and receive timely service, and it seems we fell short in your case. We appreciate your feedback and are looking into what happened to prevent this in the future. If there's anything we can do to address your concerns, please reach out directly. Your satisfaction is important to us, and we’d like the opportunity to make things right.
 
 — The Coastal Auto Care Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <div class="industry-panel" id="panel-salon">
 <div class="industry-header">
@@ -1120,9 +1005,8 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">AT</div>
 <div class="rinfo">
@@ -1132,24 +1016,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“I came in for a color correction after a disaster at another salon. My stylist took her time, explained the process, and the results were absolutely incredible. I actually cried because I was so happy. Luxe is the only salon I'll ever go to again. Worth every penny.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Amber T.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Amber T.:
 
 "I came in for a color correction after a disaster at another salon. My stylist took her time, explained the process, and the results were absolutely incredible...."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're thrilled to hear about your positive experience at Luxe Hair Studio! Our team loves transforming challenges into beautiful results, and we’re so glad we could turn your situation around. Knowing..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're thrilled to hear about your positive experience at Luxe Hair Studio! Our team loves transforming challenges into beautiful results, and we’re so glad we could turn your situation around. Knowing we brought you joy means the world to us. We look forward to welcoming you back for more amazing hair moments. Your trust and kind words truly inspire our team! 
 
 — The Luxe Hair Studio Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">NB</div>
 <div class="rinfo">
@@ -1159,24 +1040,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Love my stylist here. She always does exactly what I ask and my hair feels amazing after. Giving 4 stars only because the salon gets very loud when it's busy and it's hard to relax. The actual service and skill is 5 stars.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Natasha B.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Natasha B.:
 
 "Love my stylist here. She always does exactly what I ask and my hair feels amazing after. Giving 4 stars only because the salon gets very loud when it's busy an..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're thrilled to hear how much you love your stylist and the fantastic job she does with your hair! It's wonderful to know your hair feels amazing after each visit. We appreciate your feedback about ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're thrilled to hear how much you love your stylist and the fantastic job she does with your hair! It's wonderful to know your hair feels amazing after each visit. We appreciate your feedback about the noise levels and understand how important a relaxing atmosphere is. We're continuously looking for ways to enhance our salon environment and create a more soothing experience for everyone. Thank you for your valuable input and for choosing Luxe Hair Studio. We look forward to welcoming you back soon! 
 
 — The Luxe Hair Studio Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">KR</div>
 <div class="rinfo">
@@ -1186,21 +1065,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The haircut itself was fine but it was noticeably different from what I showed in my inspiration photo. My stylist didn't really consult much before cutting. It's not a bad haircut, it's just not what I wanted. Will try again but clarify more upfront.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Kelly R.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Kelly R.:
 
 "The haircut itself was fine but it was noticeably different from what I showed in my inspiration photo. My stylist didn't really consult much before cutting. It..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're sorry to hear that your haircut didn't fully match your expectations. We appreciate your feedback and understand the importance of clear communication. On your next visit, we’ll ensure that we c..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're sorry to hear that your haircut didn't fully match your expectations. We appreciate your feedback and understand the importance of clear communication. On your next visit, we’ll ensure that we consult with you thoroughly to achieve the look you desire. Your satisfaction is very important to us, and we look forward to giving you the experience you’re looking for. Thank you for giving us another chance.
 
 — The Luxe Hair Studio Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">DF</div>
 <div class="rinfo">
@@ -1210,24 +1085,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“I've been going here for a year and the quality has become inconsistent depending on who you get. My usual stylist left and the new one wasn't as skilled. Would give more stars if the quality was more consistent across stylists.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Diana F.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Diana F.:
 
 "I've been going here for a year and the quality has become inconsistent depending on who you get. My usual stylist left and the new one wasn't as skilled. Would..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We genuinely appreciate your feedback and are sorry to hear about your recent experience with us. We understand how important it is to have consistent quality, and we'll work diligently to ensure all ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We genuinely appreciate your feedback and are sorry to hear about your recent experience with us. We understand how important it is to have consistent quality, and we'll work diligently to ensure all our stylists meet the high standards you expect. Please feel free to reach out to us directly so we can find a stylist who perfectly suits your needs. We're committed to making your next visit exceptional and appreciate your loyalty over the past year. 
 
 — The Luxe Hair Studio Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">PM</div>
 <div class="rinfo">
@@ -1237,21 +1111,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The color I asked for (a warm brunette) came out orange. The stylist said it would 'fade into the right tone' but it's been 3 weeks and I'm still orange. I didn't want to make a scene but I'm genuinely disappointed for $180.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Patricia M.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Patricia M.:
 
 "The color I asked for (a warm brunette) came out orange. The stylist said it would 'fade into the right tone' but it's been 3 weeks and I'm still orange. I didn..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We’re truly sorry to hear about your experience. Your satisfaction is very important to us, and it’s disappointing to know we missed the mark. We’d love the opportunity to make things right. Please re..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We’re truly sorry to hear about your experience. Your satisfaction is very important to us, and it’s disappointing to know we missed the mark. We’d love the opportunity to make things right. Please reach out to us directly so we can discuss a complimentary color correction. Our goal is for you to leave our salon feeling confident and beautiful. Thank you for sharing your feedback—we’re here to help. 
 
 — The Luxe Hair Studio Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">LW</div>
 <div class="rinfo">
@@ -1261,21 +1131,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Showed up for my appointment and they had no record of it. Said 'sorry, we must have lost it in our system' and could get me in 2 hours later. I had already arranged childcare for that specific time. No offer of compensation or priority scheduling, just a shrug.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Lisa W.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Lisa W.:
 
 "Showed up for my appointment and they had no record of it. Said 'sorry, we must have lost it in our system' and could get me in 2 hours later. I had already arr..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry for the inconvenience you experienced with your appointment. It’s never our intention to disrupt your plans, and we understand the frustration this caused, especially with your child..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry for the inconvenience you experienced with your appointment. It’s never our intention to disrupt your plans, and we understand the frustration this caused, especially with your childcare arrangements. Your feedback is invaluable, and we are reviewing our scheduling processes to prevent this from happening again. We'd love the chance to make it up to you and discuss how we can improve your experience. Please feel free to reach out to us directly. Thank you for bringing this to our attention. 
 
 — The Luxe Hair Studio Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">GO</div>
 <div class="rinfo">
@@ -1285,24 +1151,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The blowout looked great in the salon but within an hour in the rain it was gone. Maybe not entirely their fault but for $65 I expected it to last more than an hour. The atmosphere is nice though, hence the 2 stars.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Grace O.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Grace O.:
 
 "The blowout looked great in the salon but within an hour in the rain it was gone. Maybe not entirely their fault but for $65 I expected it to last more than an ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We’re sorry to hear about your experience with the blowout. We understand how disappointing it can be when weather conditions affect your style. We pride ourselves on delivering lasting results and ap..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We’re sorry to hear about your experience with the blowout. We understand how disappointing it can be when weather conditions affect your style. We pride ourselves on delivering lasting results and appreciate your feedback. Please feel free to reach out to us directly so we can discuss how to ensure a more satisfying experience in the future. We’re glad to hear you enjoyed the atmosphere and hope to welcome you back soon.
 
 — The Luxe Hair Studio Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1d4ed8">SV</div>
 <div class="rinfo">
@@ -1312,21 +1177,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“They burned my scalp with the color developer. I told the stylist it was burning and she told me to 'push through it.' I now have blisters on my scalp. I have documentation from my doctor. This is completely unacceptable.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Samantha V.:
+</div><div class="sms-bubble">⭐ 1★ from Samantha V.:
 
 "They burned my scalp with the color developer. I told the stylist it was burning and she told me to 'push through it.' I now have blisters on my scalp. I have d..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We are truly sorry to hear about your experience. Your comfort and safety are our top priorities, and it's concerning to hear about this incident. We take such matters very seriously and would appreci..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We are truly sorry to hear about your experience. Your comfort and safety are our top priorities, and it's concerning to hear about this incident. We take such matters very seriously and would appreciate the opportunity to discuss this further with you. Please reach out to us directly so we can address your concerns and find a resolution. Your feedback is important to us, and we're committed to ensuring that this doesn't happen again. 
 
 — The Luxe Hair Studio Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7649ec">JC</div>
 <div class="rinfo">
@@ -1336,21 +1197,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“My hair was noticeably shorter on one side than the other. When I pointed this out the stylist got defensive and said it 'just looks that way because of how I part it.' My husband measured it — a full inch difference. Refused to fix it without charging me.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Jennifer C.:
+</div><div class="sms-bubble">⭐ 1★ from Jennifer C.:
 
 "My hair was noticeably shorter on one side than the other. When I pointed this out the stylist got defensive and said it 'just looks that way because of how I p..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for your experience at our salon. It's important to us that every customer leaves feeling satisfied with their look. We are truly sorry for any discomfort caused and would love ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for your experience at our salon. It's important to us that every customer leaves feeling satisfied with their look. We are truly sorry for any discomfort caused and would love the opportunity to make this right. Please reach out to us directly so we can arrange a complimentary correction. Your trust means a lot to us, and we hope to restore it with our commitment to quality service. 
 
 — The Luxe Hair Studio Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#07b9fd">MD</div>
 <div class="rinfo">
@@ -1360,19 +1217,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Waited 45 minutes past my appointment time with no explanation or apology. Then my stylist rushed through my appointment to 'make up time.' The cut was sloppy and uneven. When I brought it up at checkout they charged me full price. Never again.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Melissa D.:
+</div><div class="sms-bubble">⭐ 1★ from Melissa D.:
 
 "Waited 45 minutes past my appointment time with no explanation or apology. Then my stylist rushed through my appointment to 'make up time.' The cut was sloppy a..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for any inconvenience caused. Your feedback is important, and we'll address thi..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for any inconvenience caused. Your feedback is important, and we'll address this with our team to ensure it doesn't happen again. We would love the opportunity to make this right for you. Please contact us directly so we can discuss how to best resolve this matter. Thank you for bringing this to our attention. 
 
 — The Luxe Hair Studio Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <div class="industry-panel" id="panel-restaurant">
 <div class="industry-header">
@@ -1381,9 +1236,8 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 </div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span> 5★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">AP</div>
 <div class="rinfo">
@@ -1393,24 +1247,21 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Hands down the best meal I've had in Seattle this year. The salmon was perfectly cooked, the roasted vegetables were incredible, and our server Marcus knew the menu inside and out. The atmosphere is cozy without being loud. We'll be celebrating every occasion here from now on.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Alex P.:
+</div><div class="sms-bubble">⭐⭐⭐⭐⭐ 5★ from Alex P.:
 
 "Hands down the best meal I've had in Seattle this year. The salmon was perfectly cooked, the roasted vegetables were incredible, and our server Marcus knew the ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're thrilled to hear that your meal at The Local Table was a standout experience this year! It's wonderful to know that the salmon and roasted vegetables hit the mark, and that Marcus added to your ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're thrilled to hear that your meal at The Local Table was a standout experience this year! It's wonderful to know that the salmon and roasted vegetables hit the mark, and that Marcus added to your dining experience with his knowledge. Our team works hard to create a cozy atmosphere, and we're delighted it resonated with you. We look forward to being part of many more of your special celebrations! 
 
 — The Local Table Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span> 4★ Reviews (1 example)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">CL</div>
 <div class="rinfo">
@@ -1420,24 +1271,22 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Excellent food and really attentive service. The pork belly appetizer was outstanding. Took one star off because our entrees came out before we'd finished our starters, which felt rushed. But everything tasted great and we'd definitely come back.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Chris L.:
+</div><div class="sms-bubble">⭐⭐⭐⭐ 4★ from Chris L.:
 
 "Excellent food and really attentive service. The pork belly appetizer was outstanding. Took one star off because our entrees came out before we'd finished our s..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're delighted to hear you enjoyed our food and attentive service, especially the pork belly appetizer! We apologize for the timing issue with your entrees; we appreciate your feedback and will work ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're delighted to hear you enjoyed our food and attentive service, especially the pork belly appetizer! We apologize for the timing issue with your entrees; we appreciate your feedback and will work on improving this aspect of our service. Knowing you'd like to return is a great compliment, and we look forward to welcoming you back for an even better experience. 
 
 — The Local Table Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid #f59e0b33"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 3★ Reviews (2 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1d4ed8">MC</div>
 <div class="rinfo">
@@ -1447,21 +1296,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Food was good but not exceptional for the price point. The pasta was a touch underseasoned and my partner's steak was medium when they ordered medium-rare. Service was friendly but slow. Overall a fine dinner but probably not a repeat visit at $85/head.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Marie C.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Marie C.:
 
 "Food was good but not exceptional for the price point. The pasta was a touch underseasoned and my partner's steak was medium when they ordered medium-rare. Serv..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We appreciate your feedback and are sorry to hear that your experience didn't fully meet your expectations. Your comments about the pasta and steak will be shared with our culinary team to ensure impr..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We appreciate your feedback and are sorry to hear that your experience didn't fully meet your expectations. Your comments about the pasta and steak will be shared with our culinary team to ensure improvements. We're glad to hear you found the service friendly, though we regret it was slower than expected. We strive to offer excellent value and hope you'll consider visiting us again for a more satisfying experience. Thank you for taking the time to share your thoughts.
 
 — The Local Table Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">TH</div>
 <div class="rinfo">
@@ -1471,24 +1316,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Nice ambiance and the appetizers were great. The main courses were hit or miss — my halibut was excellent, my wife's chicken was dry. Bread service at the beginning was a nice touch. Worth trying but I'd stick to fish.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐⭐ 3★ from Tom H.:
+</div><div class="sms-bubble">⭐⭐⭐ 3★ from Tom H.:
 
 "Nice ambiance and the appetizers were great. The main courses were hit or miss — my halibut was excellent, my wife's chicken was dry. Bread service at the begin..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're grateful for your visit and feedback. It's wonderful to hear you enjoyed our ambiance and appetizers, along with the halibut. We apologize for the inconsistency with the chicken dish. Your input..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're grateful for your visit and feedback. It's wonderful to hear you enjoyed our ambiance and appetizers, along with the halibut. We apologize for the inconsistency with the chicken dish. Your input helps us improve, and we'll certainly address this with our kitchen team. We're glad you appreciated the bread service, and we hope to welcome you back for another round of delicious seafood. 
 
 — The Local Table Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.12);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 2★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">RN</div>
 <div class="rinfo">
@@ -1498,21 +1342,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“We had a reservation at 7pm and weren't seated until 7:40. No apology from the host, just 'your table will be ready shortly' for 40 minutes. By the time the food came out my husband and I were past hungry and the experience was ruined. Food was fine but the wait killed it.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Rachel N.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Rachel N.:
 
 "We had a reservation at 7pm and weren't seated until 7:40. No apology from the host, just 'your table will be ready shortly' for 40 minutes. By the time the foo..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience during your recent visit. We understand how frustrating it can be to wait beyond your reservation time without clear communication. Your feedback is inv..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience during your recent visit. We understand how frustrating it can be to wait beyond your reservation time without clear communication. Your feedback is invaluable, and we'll address this with our team to ensure better service in the future. We're glad to hear the food met your expectations, but we aim for a seamless dining experience from start to finish. We hope you'll give us another chance to provide the exceptional experience we strive for. 
 
 — The Local Table Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#7c3aed">DW</div>
 <div class="rinfo">
@@ -1522,21 +1362,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Had a birthday dinner reservation here. They sat us next to the kitchen despite the restaurant being half-empty, the noise was awful. When we asked to be moved they said 'sorry, that's what's available.' For $200 I expected more consideration.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Daniel W.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Daniel W.:
 
 "Had a birthday dinner reservation here. They sat us next to the kitchen despite the restaurant being half-empty, the noise was awful. When we asked to be moved ..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your experience during your birthday dinner. Our goal is always to provide a delightful atmosphere, and it seems we fell short during your visit. Your feedback is inval..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your experience during your birthday dinner. Our goal is always to provide a delightful atmosphere, and it seems we fell short during your visit. Your feedback is invaluable, and we'll address this with our team to ensure better seating arrangements and customer service. We hope for another opportunity to offer you the experience you deserve. 
 
 — The Local Table Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#1f3b90">OS</div>
 <div class="rinfo">
@@ -1546,24 +1382,23 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The appetizers were promising but both our mains came out lukewarm. When we told our server they apologized and said 'it's been a busy night' but offered nothing to make it right. No discount, no comp dessert, nothing. Won't be back.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐⭐ 2★ from Olivia S.:
+</div><div class="sms-bubble">⭐⭐ 2★ from Olivia S.:
 
 "The appetizers were promising but both our mains came out lukewarm. When we told our server they apologized and said 'it's been a busy night' but offered nothin..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your recent experience with us. It's disappointing to know that your main courses didn't meet the standards we strive for. While busy nights do happen, ensuring every g..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your recent experience with us. It's disappointing to know that your main courses didn't meet the standards we strive for. While busy nights do happen, ensuring every guest leaves satisfied is our top priority. We apologize for not addressing your concerns adequately at that moment. Your feedback is invaluable, and we'll use it to improve our service. We genuinely hope you'll give us another chance to provide you with a better experience in the future. 
 
 — The Local Table Team</p>
 </div></div></div></div>
-</div>
-</div>
 <div class="review-group">
 <div class="star-group-label" style="background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #ef444433"><span style="color:#f59e0b">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span><span style="color:#2d2d4e">★</span> 1★ Reviews (3 examples)</div>
-<div class="pair">
 
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+
+
+<div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0f5fc2">FB</div>
 <div class="rinfo">
@@ -1573,21 +1408,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Found a piece of plastic in my food. Showed it to the waiter who took it away and came back saying 'the kitchen says it's from packaging, not a safety issue.' They still charged us full price. This is a health and safety matter and I've reported it.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Frank B.:
+</div><div class="sms-bubble">⭐ 1★ from Frank B.:
 
 "Found a piece of plastic in my food. Showed it to the waiter who took it away and came back saying 'the kitchen says it's from packaging, not a safety issue.' T..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for your recent experience. Finding a foreign object in your meal is unacceptable, and we take this very seriously. We are reviewing our processes with the kitchen team to ensur..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for your recent experience. Finding a foreign object in your meal is unacceptable, and we take this very seriously. We are reviewing our processes with the kitchen team to ensure this doesn't happen again. Your safety is our utmost priority, and we regret not addressing your concerns more effectively at the moment. Please reach out directly to us so we can make this right. 
 
 — The Local Table Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#0891b2">AR</div>
 <div class="rinfo">
@@ -1597,21 +1428,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“The food took over an hour to arrive. When it finally did, my order was completely wrong. When I pointed it out the waiter argued with me about what I'd ordered. I showed him my receipt on the table app and he just walked away without an apology. I've never felt so disrespected at a restaurant.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Anna R.:
+</div><div class="sms-bubble">⭐ 1★ from Anna R.:
 
 "The food took over an hour to arrive. When it finally did, my order was completely wrong. When I pointed it out the waiter argued with me about what I'd ordered..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We sincerely apologize for the experience you had with us. It’s concerning to hear about the delay and the mix-up with your order, as well as the interaction with our staff. We strive to make every vi..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We sincerely apologize for the experience you had with us. It’s concerning to hear about the delay and the mix-up with your order, as well as the interaction with our staff. We strive to make every visit enjoyable, and it's clear we missed the mark. Your feedback is invaluable, and we're committed to addressing these issues with our team to ensure it doesn’t happen again. We hope you might consider giving us another chance to provide you with the service you deserve. 
 
 — The Local Table Team</p>
-</div></div></div></div>
-</div>
-<div class="pair">
-
-<div class="pair-grid"><div><div class="col-header col-header-review">📬 The Review</div><div class="gcard">
+</div></div></div><div class="reviews-row"><div class="review-flow"><div class="gcard">
 <div class="grow">
 <div class="av" style="background:#6d28d9">MT</div>
 <div class="rinfo">
@@ -1621,19 +1448,17 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 <div class="gbadge"><svg height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>Google</div>
 </div>
 <p class="rtext">“Walked in for a 6pm reservation to find them fully booked with no record of us. We had a confirmation email on my phone. The manager came over and was rude about it, suggesting we 'must have the wrong restaurant.' No accommodation, no apology, just shown the door. Embarrassing for a place of this reputation.”</p>
-</div></div><div><div class="col-header col-header-gleam">⚡ Gleam's Response</div><div class="sms-stack"><div class="sms-bubble">⭐ 1★ from Mark T.:
+</div><div class="sms-bubble">⭐ 1★ from Mark T.:
 
 "Walked in for a 6pm reservation to find them fully booked with no record of us. We had a confirmation email on my phone. The manager came over and was rude abou..."</div><div class="sms-bubble msg2">Gleam's suggested reply:
 
 "We're truly sorry to hear about your recent experience. It’s disheartening to learn that our service did not meet your expectations. We sincerely apologize for the oversight with your reservation and ..."
 
-Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp">
+Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
 <p class="gresp-text">We're truly sorry to hear about your recent experience. It’s disheartening to learn that our service did not meet your expectations. We sincerely apologize for the oversight with your reservation and the way the situation was handled. This is not the level of hospitality we strive for. Please reach out to us directly, so we can make amends and hopefully have the opportunity to provide you with a more positive experience in the future. 
 
 — The Local Table Team</p>
 </div></div></div></div>
-</div>
-</div>
 </div>
 <script>
 function showIndustry(id) {
