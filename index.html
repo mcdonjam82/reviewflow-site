@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gleam — AI Reputation Management for Dental Practices</title>
-  <meta name="description" content="Gleam automates review requests, responds to feedback, and protects your practice's reputation — while you focus on patients." />
+  <title>Gleam — Done-For-You Google Review Management</title>
+  <meta name="description" content="Every Google review your business gets receives a professional, on-brand response — automatically. You approve the sensitive ones with one text. Everything else is handled for you." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -957,6 +957,148 @@
       .pricing-card.pro { transform: none; }
     }
 
+    /* ─── DFY SECTION ────────────────────────────────────── */
+    .dfy-section {
+      padding: 6rem 0;
+      background: var(--bg);
+    }
+    .dfy-inner {
+      text-align: center;
+    }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--on-bg);
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--on-muted);
+      max-width: 580px;
+      margin: 0 auto 3rem;
+    }
+    .dfy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .dfy-card {
+      background: var(--surface-high);
+      border-radius: var(--radius-card);
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-ambient);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .dfy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad-card-top);
+    }
+    .dfy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(135,209,255,0.10);
+    }
+    .dfy-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .dfy-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+      color: var(--on-bg);
+    }
+    .dfy-card p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--on-muted);
+    }
+
+    /* ─── VOICE SECTION ───────────────────────────────────── */
+    .voice-section {
+      padding: 6rem 0;
+      background: var(--surface);
+    }
+    .voice-inner {
+      text-align: center;
+    }
+    .voice-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+    .voice-bad,
+    .voice-good {
+      border-radius: var(--radius-card);
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .voice-bad {
+      background: rgba(239, 68, 68, 0.06);
+      border: 1px solid rgba(239, 68, 68, 0.20);
+    }
+    .voice-good {
+      background: rgba(7, 185, 253, 0.06);
+      border: 1px solid rgba(7, 185, 253, 0.22);
+    }
+    .voice-label {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+    .voice-label-bad {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+    }
+    .voice-label-good {
+      background: rgba(7, 185, 253, 0.15);
+      color: var(--primary-vivid);
+    }
+    .voice-bad p,
+    .voice-good p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--on-muted);
+      font-style: italic;
+    }
+    .voice-good p {
+      color: var(--on-bg);
+    }
+
+    @media (max-width: 900px) {
+      .dfy-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .voice-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .dfy-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ─── Scroll fade-in ─────────────────────────────────── */
     .reveal {
       opacity: 0;
@@ -984,6 +1126,7 @@
           <li><a href="#how">How It Works</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="/examples.html">See Examples</a></li>
         </ul>
         <div class="nav-cta" id="nav-cta">
           <a href="#cta" class="btn btn-primary">Start Free Trial</a>
@@ -1003,14 +1146,13 @@
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          For Dental Practices
+          Done For You · No App · No Dashboard · Just Results
         </div>
         <h1 class="hero-h1">
-          Turn Patient Smiles Into<br />
-          <span class="gradient-text">Five-Star Growth</span>
+          Done-For-You<br>Google Review<br><span class="gradient-text">Management.</span>
         </h1>
         <p class="hero-sub">
-          Gleam automates review requests, responds to feedback, and protects your practice's reputation — while you focus on patients.
+          Every review your business gets on Google receives a professional, on-brand response — automatically. You approve the sensitive ones with one text. Everything else is handled for you.
         </p>
         <div class="hero-ctas">
           <a href="#cta" class="btn btn-primary">Start Free Trial</a>
@@ -1038,13 +1180,46 @@
   <section id="integrations">
     <div class="container">
       <div class="integrations-inner">
-        <span class="integrations-label">Integrates with your practice management system</span>
+        <span class="integrations-label">Trusted by businesses across every industry</span>
         <div class="integrations-logos">
-          <span class="integration-name">Dentrix</span>
-          <span class="integration-name">Eaglesoft</span>
-          <span class="integration-name">Open Dental</span>
-          <span class="integration-name">Curve Dental</span>
-          <span class="integration-name">Carestream</span>
+          <span class="integration-name">Dental</span>
+          <span class="integration-name">Home Services</span>
+          <span class="integration-name">Restaurants</span>
+          <span class="integration-name">Med Spas</span>
+          <span class="integration-name">Auto Repair</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ DFY SECTION -->
+  <section class="dfy-section">
+    <div class="container">
+      <div class="dfy-inner">
+        <div class="section-label">What Done For You Means</div>
+        <h2 class="section-title">We Handle Everything.<br>You Stay In Control.</h2>
+        <p class="section-sub">Gleam runs in the background. The only time you're involved is when a negative review needs your personal touch — and that takes 10 seconds.</p>
+        <div class="dfy-grid">
+          <div class="dfy-card reveal reveal-delay-1">
+            <div class="dfy-icon">👁️</div>
+            <h3>We Watch</h3>
+            <p>Gleam monitors your Google Business profile around the clock. Every new review is detected within minutes — you never have to check.</p>
+          </div>
+          <div class="dfy-card reveal reveal-delay-2">
+            <div class="dfy-icon">✍️</div>
+            <h3>We Write</h3>
+            <p>AI generates a professional response tuned to your business voice — scraped from your website and existing responses so it sounds like you, not a robot.</p>
+          </div>
+          <div class="dfy-card reveal reveal-delay-3">
+            <div class="dfy-icon">✅</div>
+            <h3>We Post</h3>
+            <p>4 and 5-star reviews get responded to automatically. For negative reviews, we text you a draft — reply APPROVE and it's live in seconds.</p>
+          </div>
+          <div class="dfy-card reveal reveal-delay-4">
+            <div class="dfy-icon">📊</div>
+            <h3>We Report</h3>
+            <p>On the 1st of every month, a full reputation report lands in your inbox. New reviews, average rating, response rate, and AI analysis of what customers keep saying.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1056,23 +1231,23 @@
       <div class="problem-header reveal">
         <span class="section-label">The Reality</span>
         <h2>Your Reputation Is Being<br /><span class="gradient-text">Shaped Right Now</span></h2>
-        <p>While you're treating patients, your online reputation is either growing or eroding — with or without your involvement.</p>
+        <p>While you're running your business, your online reputation is either growing or eroding — with or without your involvement.</p>
       </div>
       <div class="problem-cards">
         <div class="problem-card reveal reveal-delay-1">
           <span class="problem-icon">📞</span>
           <h3>Every Missed Call Is a Lost Review</h3>
-          <p>Every patient who hangs up or leaves without a follow-up is a missed opportunity to build your five-star reputation. Manual processes mean most reviews never get asked for.</p>
+          <p>Every customer who leaves without a response is a missed opportunity to reinforce your reputation. Most business owners never have time to keep up with reviews — and it shows.</p>
         </div>
         <div class="problem-card reveal reveal-delay-2">
           <span class="problem-icon">⭐</span>
           <h3>1-Star Reviews Go Unanswered for Days</h3>
-          <p>Slow or no response to negative reviews signals indifference to prospective patients. Every day you wait, more people see an unaddressed complaint — and choose your competitor.</p>
+          <p>Slow or no response to negative reviews signals indifference to prospective customers. Every day you wait, more people see an unaddressed complaint — and choose your competitor.</p>
         </div>
         <div class="problem-card reveal reveal-delay-3">
           <span class="problem-icon">📉</span>
           <h3>Competitors Are Getting 10x More Reviews</h3>
-          <p>Practices that systematically ask for reviews dominate local search. While you're not asking, they're accumulating the social proof that wins new patients.</p>
+          <p>Businesses that systematically respond to reviews dominate local search. While you're not responding, competitors are accumulating the social proof that wins new customers.</p>
         </div>
       </div>
     </div>
@@ -1083,23 +1258,23 @@
     <div class="container">
       <div class="how-header reveal">
         <span class="section-label">How It Works</span>
-        <h2>Built for <span class="gradient-text">Busy Practices</span></h2>
+        <h2>Built for <span class="gradient-text">Busy Business Owners</span></h2>
       </div>
       <div class="how-steps">
         <div class="step reveal reveal-delay-1">
           <div class="step-number">01</div>
-          <h3>Request</h3>
-          <p>Gleam auto-sends a personalized review request via SMS moments after each appointment — zero front-desk effort required.</p>
+          <h3>We Watch</h3>
+          <p>Gleam monitors your Google Business profile 24/7. Every new review is detected within minutes — no checking required on your end.</p>
         </div>
         <div class="step reveal reveal-delay-2">
           <div class="step-number">02</div>
-          <h3>Respond</h3>
-          <p>AI drafts on-brand responses to every review — positive and negative. You approve with a single tap. Done.</p>
+          <h3>We Respond</h3>
+          <p>AI drafts a voice-tuned response for every review. 4 &amp; 5-star reviews post automatically. Negative ones? We text you a draft — reply APPROVE and it's live.</p>
         </div>
         <div class="step reveal reveal-delay-3">
           <div class="step-number">03</div>
-          <h3>Grow</h3>
-          <p>Your live dashboard tracks your reputation score, sentiment trends, and competitor gaps so you always know where you stand.</p>
+          <h3>We Report</h3>
+          <p>On the 1st of every month, a full reputation report lands in your inbox — reviews, rating trends, response rate. No login needed.</p>
         </div>
       </div>
     </div>
@@ -1110,24 +1285,24 @@
     <div class="container">
       <div class="features-header reveal">
         <span class="section-label">Product</span>
-        <h2>The Clinical <span class="gradient-text">Edge</span></h2>
-        <p>Purpose-built for dental practices. Not a generic review tool with a logo swap.</p>
+        <h2>Everything <span class="gradient-text">Handled For You</span></h2>
+        <p>Purpose-built for local business owners who don't have time to manage their reputation manually.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon">🤖</div>
-          <h3>AI Review Responses</h3>
-          <p>Draft, approve, and post — without lifting a finger. Gleam's AI understands dental practice tone and generates responses that sound authentically human.</p>
+          <h3>Voice-Tuned AI Responses</h3>
+          <p>We analyze your website and existing responses to learn your tone. Every reply sounds like you wrote it — not a generic bot. Customers won't know the difference.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">📊</div>
-          <h3>Reputation Intelligence</h3>
-          <p>Live reputation scoring, sentiment trend analysis, and competitor benchmarking in one clean dashboard. Know your standing before a new patient ever Googles you.</p>
+          <h3>Monthly Reputation Reports</h3>
+          <p>On the 1st of every month, a full report lands in your inbox — new reviews, average rating, response rate, and AI analysis of what customers keep saying.</p>
         </div>
         <div class="feature-card reveal reveal-delay-3">
-          <div class="feature-icon">🦷</div>
-          <h3>Dental-Specific Templates</h3>
-          <p>Language that actually sounds like your practice — not a hotel or restaurant. Templates trained on thousands of real dental responses for every scenario.</p>
+          <div class="feature-icon">📱</div>
+          <h3>Text-Based Approval</h3>
+          <p>No app. No dashboard. No login. When a sensitive review needs your touch, we text you the draft. Reply APPROVE. It posts. Done in 10 seconds.</p>
         </div>
       </div>
     </div>
@@ -1138,67 +1313,48 @@
     <div class="container">
       <div class="pricing-header reveal">
         <span class="section-label">Pricing</span>
-        <h2>Precision Pricing for<br /><span class="gradient-text">Every Practice</span></h2>
-        <p>No setup fees. No contracts. Cancel anytime. Start growing in under 10 minutes.</p>
+        <h2>Simple Pricing.<br><span class="gradient-text">Done For You.</span></h2>
+        <p>No setup fees. No contracts. Cancel anytime. Your reputation runs on autopilot from day one.</p>
       </div>
-      <div class="pricing-grid">
+      <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 780px; margin: 0 auto;">
 
         <!-- Starter -->
         <div class="pricing-card reveal reveal-delay-1">
-          <div class="pricing-tier">Starter</div>
+          <div class="pricing-tier">STARTER</div>
+          <div class="pricing-price">
+            <span class="price-amount">$49</span>
+            <span class="price-period">/mo</span>
+          </div>
+          <p class="pricing-tagline">For single-location businesses</p>
+          <ul class="pricing-features">
+            <li>1 Google Business location</li>
+            <li>AI responses auto-posted for 4 &amp; 5-star reviews</li>
+            <li>Text approval for 1, 2 &amp; 3-star reviews</li>
+            <li>Voice-tuned from day one (we analyze your website + existing responses)</li>
+            <li>Monthly reputation report emailed automatically</li>
+            <li>Email support</li>
+          </ul>
+          <a href="#get-started" class="btn btn-outline-primary">Start Free Trial</a>
+        </div>
+
+        <!-- Business -->
+        <div class="pricing-card pro reveal reveal-delay-2">
+          <div class="best-value-badge">✦ Most Popular</div>
+          <div class="pricing-tier">BUSINESS</div>
           <div class="pricing-price">
             <span class="price-amount">$149</span>
             <span class="price-period">/mo</span>
           </div>
-          <p class="pricing-tagline">Perfect for a single-location practice ready to start building momentum.</p>
+          <p class="pricing-tagline">For multi-location or high-volume businesses</p>
           <ul class="pricing-features">
-            <li>Up to 1 location</li>
-            <li>Automated SMS review requests</li>
-            <li>Basic AI response drafts</li>
-            <li>Google &amp; Facebook monitoring</li>
-            <li>Monthly reputation report</li>
-            <li>Email support</li>
+            <li>Up to 3 Google Business locations</li>
+            <li>Everything in Starter</li>
+            <li>White-label monthly reports (your business branding)</li>
+            <li>Priority SMS support line</li>
+            <li>Review backfill on signup — we catch up on unanswered reviews</li>
+            <li>Dedicated account manager</li>
           </ul>
-          <a href="#cta" class="btn btn-outline-primary">Get Started</a>
-        </div>
-
-        <!-- Pro -->
-        <div class="pricing-card pro reveal reveal-delay-2">
-          <div class="best-value-badge">✦ Best Value</div>
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-price">
-            <span class="price-amount">$299</span>
-            <span class="price-period">/mo</span>
-          </div>
-          <p class="pricing-tagline">For growth-focused practices that want a competitive edge across every channel.</p>
-          <ul class="pricing-features">
-            <li>Multi-location support</li>
-            <li>Full AI response suite</li>
-            <li>Competitor monitoring &amp; benchmarking</li>
-            <li>Sentiment trend analytics</li>
-            <li>Custom response templates</li>
-            <li>Priority support (24hr)</li>
-            <li>Slack &amp; PMS integrations</li>
-          </ul>
-          <a href="#cta" class="btn btn-primary">Start Free Trial</a>
-        </div>
-
-        <!-- Enterprise -->
-        <div class="pricing-card reveal reveal-delay-3">
-          <div class="pricing-tier">Enterprise</div>
-          <div class="pricing-price">
-            <span class="price-amount">Custom</span>
-          </div>
-          <p class="pricing-tagline">Built for DSOs and group practices that need power, scale, and white-glove service.</p>
-          <ul class="pricing-features">
-            <li>Unlimited locations</li>
-            <li>White-label branding</li>
-            <li>Dedicated onboarding specialist</li>
-            <li>Custom AI model fine-tuning</li>
-            <li>Enterprise SLA</li>
-            <li>Executive reporting dashboard</li>
-          </ul>
-          <a href="#cta" class="btn btn-outline-primary">Book a Call</a>
+          <a href="#get-started" class="btn btn-primary">Start Free Trial</a>
         </div>
 
       </div>
@@ -1210,37 +1366,37 @@
     <div class="container">
       <div class="testimonials-header reveal">
         <span class="section-label">Social Proof</span>
-        <h2>Practices That Chose <span class="gradient-text">Gleam</span></h2>
+        <h2>Businesses That Chose <span class="gradient-text">Gleam</span></h2>
       </div>
       <div class="testimonials-grid">
 
         <div class="testimonial-card reveal reveal-delay-1">
           <div class="stars">★★★★★</div>
           <div class="quote-mark">"</div>
-          <p class="testimonial-text">We went from 47 to 312 Google reviews in 90 days. Our new patient bookings literally doubled. I wish we'd started sooner.</p>
+          <p class="testimonial-text">I had 23 unanswered Google reviews when I signed up. Gleam caught up on all of them in 48 hours and now handles every new one automatically. I haven't logged into Google Business in months.</p>
           <div class="testimonial-author">
-            <span class="author-name">Dr. Sarah Chen</span>
-            <span class="author-role">Bright Smiles Dental</span>
+            <span class="author-name">Marcus Webb</span>
+            <span class="author-role">Owner, Pacific Coast HVAC</span>
           </div>
         </div>
 
         <div class="testimonial-card reveal reveal-delay-2">
           <div class="stars">★★★★★</div>
           <div class="quote-mark">"</div>
-          <p class="testimonial-text">Gleam handles all the things our front desk used to spend 2 hours on every morning. It's like adding a full-time reputation manager to the team at a fraction of the cost.</p>
+          <p class="testimonial-text">The responses sound exactly like me — my team even thought I was writing them. We got a 4.8-star average now after being stuck at 4.1 for two years. Gleam handles everything.</p>
           <div class="testimonial-author">
-            <span class="author-name">Dr. Marcus Webb</span>
-            <span class="author-role">Pacific Coast Orthodontics</span>
+            <span class="author-name">Sarah Chen</span>
+            <span class="author-role">Owner, Bloom Med Spa</span>
           </div>
         </div>
 
         <div class="testimonial-card reveal reveal-delay-3">
           <div class="stars">★★★★★</div>
           <div class="quote-mark">"</div>
-          <p class="testimonial-text">I approved 23 review responses in 4 minutes this morning while drinking my coffee. The AI drafts are so good I barely change anything. This is wild.</p>
+          <p class="testimonial-text">A 1-star review came in on a Saturday. Gleam texted me a draft, I replied APPROVE, and it was live in seconds. Customer followed up saying they appreciated the response. That's never happened before.</p>
           <div class="testimonial-author">
             <span class="author-name">Jamie Liu</span>
-            <span class="author-role">Front Office Manager, Sunrise Dental</span>
+            <span class="author-role">Owner, Sunrise Auto Repair</span>
           </div>
         </div>
 
@@ -1248,14 +1404,37 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════ VOICE SECTION -->
+  <section class="voice-section">
+    <div class="container">
+      <div class="voice-inner">
+        <div class="section-label">Your Voice. Not Generic AI.</div>
+        <h2 class="section-title">Responses That Sound<br>Like Your Business.</h2>
+        <p class="section-sub">When you connect Gleam, we analyze your website copy and any existing responses you've written — learning your tone, your phrases, your personality. The result: responses that sound like you wrote them.</p>
+        <div class="voice-compare reveal">
+          <div class="voice-bad">
+            <div class="voice-label voice-label-bad">❌ Generic AI</div>
+            <p>"Thank you so much for taking the time to share your experience with us! We truly appreciate your valuable feedback and we strive to ensure every customer has an exceptional experience. Rest assured we will use your input to continuously improve our services."</p>
+          </div>
+          <div class="voice-good">
+            <div class="voice-label voice-label-good">✅ Gleam (voice-tuned)</div>
+            <p>"Thanks Sandra — so glad Dr. Patel and the team made your daughter feel at ease. That's exactly what we're here for. Looking forward to seeing you both at the next visit!"</p>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:32px;font-size:14px;color:var(--on-muted)">See 60 real AI-generated responses across 6 industries → <a href="/examples.html" style="color:var(--primary-vivid);text-decoration:none;font-weight:700;">Browse Examples</a></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════ FINAL CTA -->
+  <a id="get-started" style="display:block;position:relative;top:-80px;visibility:hidden;"></a>
   <section id="cta">
     <div class="cta-glow"></div>
     <div class="container">
       <div class="cta-inner reveal">
         <span class="section-label">Get Started</span>
-        <h2>Ready to Automate Your<br /><span class="gradient-text">Clinical Reputation?</span></h2>
-        <p>Join 500+ practices already growing with Gleam. No contracts. No setup fees. Cancel anytime.</p>
+        <h2>Ready to Put Your Reputation<br /><span class="gradient-text">On Autopilot?</span></h2>
+        <p>Join hundreds of businesses already growing with Gleam. No contracts. No setup fees. Cancel anytime.</p>
         <div class="cta-actions">
           <a href="https://app.gleamreply.com/signup" class="btn btn-primary">Start Your Free 14-Day Trial</a>
           <a href="https://cal.gleamreply.com" class="cta-secondary-link">Questions? Book a 15-min call →</a>
@@ -1271,7 +1450,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <div class="footer-logo">GLEAM</div>
-            <p class="footer-tagline">AI reputation management built for dental practices.</p>
+            <p class="footer-tagline">Done-for-you Google review management for local businesses.</p>
           </div>
           <ul class="footer-links">
             <li><a href="/privacy">Privacy</a></li>
