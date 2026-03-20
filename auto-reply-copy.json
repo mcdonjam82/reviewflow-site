@@ -1,0 +1,133 @@
+{
+  "nav": {
+    "logo": "LUCRALAB",
+    "cta": "Stop Losing Calls"
+  },
+  "hero": {
+    "eyebrow": "FOR LOCAL SERVICE BUSINESSES",
+    "h1_line1": "EVERY MISSED CALL",
+    "h1_line2": "IS A PAID JOB WALKING OUT THE DOOR.",
+    "subheadline": "When you can't pick up, we text them back in seconds — answer their questions, book the appointment, and lock in the job. No call center. No hiring. No missed revenue.",
+    "cta_primary": "See How It Works",
+    "cta_secondary": "Watch a Live Demo",
+    "demo_card": {
+      "missed_call_label": "📵 Missed call from: (206) 847-3291",
+      "auto_text": "Hey! Sorry we missed you — this is Mike's Plumbing. We're on a job right now but didn't want to leave you hanging. What can we help you with today?",
+      "customer_reply": "Hi! Yeah I've got a busted pipe under my sink, it's leaking pretty bad. Can someone come out today?",
+      "followup_text": "Absolutely — we can get someone out this afternoon between 2–4pm. Can I get your address to confirm the booking?",
+      "result_label": "✅ Job booked. No call needed."
+    }
+  },
+  "stats": [
+    {
+      "number": "62%",
+      "label": "of calls to local service businesses go unanswered"
+    },
+    {
+      "number": "78%",
+      "label": "of customers call the next business on the list if no one answers"
+    },
+    {
+      "number": "< 60 sec",
+      "label": "average response time — faster than any call center or employee"
+    }
+  ],
+  "problem": {
+    "label": "THE REAL COST OF MISSING CALLS",
+    "headline": "You're Not Just Missing Calls. You're Handing Jobs to Your Competitors.",
+    "cards": [
+      {
+        "emoji": "📞",
+        "title": "You're Always Unavailable at the Wrong Time",
+        "description": "You're on a job site, under a sink, or in a patient's mouth — and someone who's ready to hire you gets voicemail. By the time you call back, they've already booked someone else."
+      },
+      {
+        "emoji": "💸",
+        "title": "Call Centers Charge More and Deliver Less",
+        "description": "You're spending $800–1,200/month on answering services that still put people on hold, read scripts, and drop leads. You're paying for coverage you're not getting."
+      },
+      {
+        "emoji": "⏱️",
+        "title": "Speed Is the Sale",
+        "description": "Studies show the first business to respond wins the job — over 70% of the time. Every hour you wait to call back cuts your chances of closing in half."
+      }
+    ]
+  },
+  "how_it_works": {
+    "label": "HOW IT WORKS",
+    "headline": "Set It Up Once. Never Lose a Lead Again.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Call Comes In, You Can't Answer",
+        "description": "The moment a call goes unanswered, the system triggers automatically — no setup, no button to push, no manual monitoring required."
+      },
+      {
+        "number": "02",
+        "title": "They Get a Text Back in Seconds",
+        "description": "A friendly, personalized text goes out immediately — answering common questions, qualifying the lead, and moving them toward booking."
+      },
+      {
+        "number": "03",
+        "title": "Job Gets Booked. You Get Notified.",
+        "description": "When a customer is ready to schedule, you get a notification with everything you need — their name, issue, and a confirmed time slot."
+      }
+    ]
+  },
+  "verticals": {
+    "label": "BUILT FOR YOUR INDUSTRY",
+    "headline": "Doesn't Matter What You Do. Missed Calls Cost Everyone.",
+    "items": [
+      {
+        "icon": "🦷",
+        "name": "Dental Practices",
+        "pain": "Your front desk can't answer every call during procedures — and patients who hit voicemail don't call back, they book somewhere else.",
+        "solution": "We text them back instantly, answer questions about insurance and availability, and confirm the appointment — all before your hygienist changes gloves."
+      },
+      {
+        "icon": "🔧",
+        "name": "Plumbing & HVAC",
+        "pain": "You're on the job when the next job calls — and that customer isn't waiting around while you finish up under someone else's sink.",
+        "solution": "We respond the second they hang up, qualify the problem, and get them booked for a window that works — so your schedule fills itself."
+      },
+      {
+        "icon": "🖌️",
+        "name": "Painting & Home Services",
+        "pain": "Leads call once, and if they don't hear back within an hour, they've already accepted another quote — or stopped looking entirely.",
+        "solution": "We reach out immediately, collect job details, and keep them warm until you can follow up — so no lead ever goes cold again."
+      }
+    ]
+  },
+  "social_proof": {
+    "label": "REAL RESULTS",
+    "headline": "Businesses Like Yours Are Booking More Jobs Without Answering More Calls.",
+    "testimonials": [
+      {
+        "quote": "I was skeptical — I thought I needed a human to handle calls. But honestly? The response rate is better than when my receptionist was doing it. We booked three jobs in the first week that would've been lost calls.",
+        "name": "Mike T.",
+        "business": "Owner, residential plumbing company — Seattle, WA"
+      },
+      {
+        "quote": "We cut our answering service and saved $900 a month. The leads we get now are already half-qualified before I even talk to them. It's like having a front desk person who never takes a day off.",
+        "name": "Dr. Rachel K.",
+        "business": "General Dentist — Phoenix, AZ"
+      },
+      {
+        "quote": "Painting is seasonal and competitive. When someone calls three guys, the first one to respond usually gets the job. This thing made us that first response, every single time. Revenue is up 30% since spring.",
+        "name": "Carlos M.",
+        "business": "Owner, exterior painting contractor — Austin, TX"
+      }
+    ]
+  },
+  "cta_section": {
+    "label": "READY TO STOP LEAVING MONEY ON THE TABLE?",
+    "headline": "Get Set Up in Under 10 Minutes.",
+    "subheadline": "We'll connect to your existing number, customize the responses for your business, and you'll be live before your next missed call. No tech headaches. No long contracts.",
+    "cta": "Start Capturing Every Lead →",
+    "trust": "No contracts. No setup fees. Cancel anytime. Pricing starts at $97/month."
+  },
+  "footer": {
+    "tagline": "Stop losing the jobs you never knew you had.",
+    "attribution": "A LucraLab Product"
+  }
+}

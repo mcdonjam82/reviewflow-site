@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-Reply — Never Lose a Missed Call Again | LucraLab</title>
+  <meta name="description" content="When you can't pick up, we text them back in seconds — answer their questions, book the appointment, and lock in the job. No call center. No hiring. No missed revenue.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"></noscript>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1f3b90;--cyan:#07b9fd;--purple:#7649ec;
+      --dark:#151327;--darker:#0d0b1e;--gray:#94a3b8;
+      --grad:linear-gradient(135deg,var(--blue),var(--purple));
+      --grad-h:linear-gradient(90deg,var(--blue),var(--cyan));
+      --grad-cp:linear-gradient(90deg,var(--cyan),var(--purple));
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Roboto',sans-serif;background:var(--darker);color:#fff;line-height:1.8;overflow-x:hidden}
+
+    /* TOP BAR */
+    .top-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));position:fixed;top:0;left:0;right:0;z-index:200}
+
+    /* NAV */
+    nav{position:fixed;top:3px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(13,11,30,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .logo{font-size:20px;font-weight:900;letter-spacing:4px;text-transform:uppercase;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-cta{background:var(--grad-h);color:#fff;text-decoration:none;padding:10px 26px;border-radius:100px;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:opacity .2s,box-shadow .25s;white-space:nowrap}
+    .nav-cta:hover{opacity:.88;box-shadow:0 0 24px rgba(7,185,253,.45)}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:
+      radial-gradient(ellipse 80% 60% at 50% 0%,rgba(31,59,144,.55) 0%,transparent 70%),
+      radial-gradient(ellipse 60% 50% at 85% 90%,rgba(118,73,236,.4) 0%,transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 80%,rgba(7,185,253,.18) 0%,transparent 60%)}
+    .hero-content{position:relative;max-width:900px;width:100%}
+    .eyebrow{display:inline-block;background:rgba(7,185,253,.12);border:1px solid rgba(7,185,253,.38);color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:8px 22px;border-radius:100px;margin-bottom:32px}
+    h1{font-size:clamp(40px,7.5vw,84px);font-weight:900;text-transform:uppercase;letter-spacing:2px;line-height:1.0;margin-bottom:28px}
+    h1 .grad-text{background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+    .hero-sub{font-size:clamp(15px,2.2vw,19px);color:var(--gray);max-width:620px;margin:0 auto 44px;font-weight:400;line-height:1.85}
+    .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+
+    /* BUTTONS */
+    .btn-primary{background:var(--grad-h);color:#fff;text-decoration:none;padding:17px 44px;border-radius:100px;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;transition:opacity .2s,transform .25s,box-shadow .3s;display:inline-block;box-shadow:0 4px 28px rgba(7,185,253,.25)}
+    .btn-primary:hover{opacity:.9;transform:translateY(-3px);box-shadow:0 10px 40px rgba(7,185,253,.5)}
+    .btn-secondary{background:transparent;color:#fff;text-decoration:none;padding:17px 44px;border-radius:100px;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.22);transition:border-color .2s,transform .25s,box-shadow .25s;display:inline-block}
+    .btn-secondary:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 4px 24px rgba(7,185,253,.22)}
+
+    /* HERO SMS DEMO CARD */
+    @keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    .hero-sms-wrap{display:flex;justify-content:center}
+    .sms-demo-card{background:rgba(21,19,39,.92);border:1px solid rgba(7,185,253,.45);border-radius:22px;padding:24px 26px;text-align:left;width:100%;max-width:460px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 0 48px rgba(7,185,253,.18),0 16px 56px rgba(0,0,0,.55);animation:floatCard 6s ease-in-out infinite}
+    .sms-card-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .sms-avatar{width:40px;height:40px;border-radius:50%;background:var(--grad-h);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .sms-name-block{}
+    .sms-name{font-weight:700;font-size:13px;letter-spacing:.5px}
+    .sms-status{font-size:11px;color:#4ade80;font-weight:500}
+    .missed-call-label{background:rgba(255,80,80,.12);border:1px solid rgba(255,80,80,.3);color:#f87171;font-size:11px;font-weight:700;padding:6px 14px;border-radius:8px;margin-bottom:14px;display:inline-flex;align-items:center;gap:6px;letter-spacing:.5px}
+    .bubble{border-radius:18px;padding:11px 15px;margin-bottom:9px;max-width:88%;font-size:12.5px;line-height:1.6;word-break:break-word}
+    .bubble-out{background:linear-gradient(135deg,var(--blue),var(--purple));margin-left:auto;border-radius:18px 4px 18px 18px;text-align:left}
+    .bubble-in{background:rgba(255,255,255,.1);border-radius:4px 18px 18px 18px}
+    .bubble-time{font-size:10.5px;color:var(--gray);text-align:center;margin:8px 0 4px;opacity:.6}
+    .deal-badge{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.35);color:#4ade80;font-size:11px;font-weight:700;padding:8px 16px;border-radius:10px;margin-top:10px;display:inline-flex;align-items:center;gap:6px;letter-spacing:.5px}
+
+    /* STAT BAR */
+    .stat-bar{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:52px 24px}
+    .stat-bar-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:center;gap:72px;flex-wrap:wrap}
+    .stat{text-align:center;min-width:160px}
+    .stat-num{font-size:clamp(36px,5vw,52px);font-weight:900;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;letter-spacing:-1px;line-height:1.1}
+    .stat-label{font-size:12px;color:var(--gray);letter-spacing:1px;font-weight:500;margin-top:6px;max-width:200px;line-height:1.5}
+
+    /* SECTION PRIMITIVES */
+    .section{padding:100px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-inner.centered{text-align:center}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;background:var(--grad-cp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;display:inline-block}
+    .section-title{font-size:clamp(26px,4vw,46px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:1.08;margin-bottom:16px}
+    .section-sub{font-size:16px;color:var(--gray);max-width:600px;margin-bottom:60px;line-height:1.85}
+    .section-inner.centered .section-sub{margin-left:auto;margin-right:auto}
+
+    /* PROBLEM SECTION */
+    .problem-section{background:rgba(31,59,144,.05);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:0}
+    .problem-card{background:rgba(21,19,39,.88);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:38px 34px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:default;position:relative;overflow:hidden}
+    .problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad-cp);opacity:0;transition:opacity .3s}
+    .problem-card:hover{transform:translateY(-7px);border-color:rgba(7,185,253,.35);box-shadow:0 14px 48px rgba(7,185,253,.12)}
+    .problem-card:hover::before{opacity:1}
+    .problem-icon{font-size:44px;margin-bottom:20px;display:block;line-height:1}
+    .problem-card h3{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .problem-card p{font-size:14px;color:var(--gray);line-height:1.85}
+
+    /* HOW IT WORKS */
+    .how-section{background:rgba(7,185,253,.04);border-top:1px solid rgba(7,185,253,.1);border-bottom:1px solid rgba(7,185,253,.1)}
+    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;position:relative}
+    .steps-row::before{content:'';position:absolute;top:36px;left:calc(16.66% + 36px);right:calc(16.66% + 36px);height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.3;z-index:0}
+    .step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 28px;position:relative;z-index:1}
+    .step-num{width:72px;height:72px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;flex-shrink:0;box-shadow:0 4px 28px rgba(118,73,236,.4);border:2px solid rgba(7,185,253,.35);margin-bottom:24px;letter-spacing:1px}
+    .step h3{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .step p{font-size:14px;color:var(--gray);line-height:1.85}
+
+    /* VERTICALS */
+    .verticals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:0}
+    .vertical-card{background:rgba(21,19,39,.88);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:38px 32px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:default}
+    .vertical-card:hover{transform:translateY(-6px);border-color:rgba(118,73,236,.5);box-shadow:0 14px 48px rgba(118,73,236,.15)}
+    .vertical-icon{font-size:42px;margin-bottom:18px;display:block;line-height:1}
+    .vertical-name{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .pain-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#f87171;margin-bottom:6px}
+    .solution-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4ade80;margin-bottom:6px;margin-top:16px}
+    .vertical-card p{font-size:14px;color:var(--gray);line-height:1.8}
+    .pain-divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:16px 0 0}
+
+    /* TESTIMONIALS */
+    .testimonials-section{background:rgba(118,73,236,.05);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .testimonial-card{background:rgba(21,19,39,.88);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:34px;display:flex;flex-direction:column;gap:18px;transition:transform .3s,border-color .3s,box-shadow .3s}
+    .testimonial-card:hover{transform:translateY(-5px);border-color:rgba(118,73,236,.4);box-shadow:0 12px 40px rgba(118,73,236,.12)}
+    .stars{font-size:17px;letter-spacing:2px;color:#fbbf24}
+    .quote-text{font-size:14px;color:#e2e8f0;line-height:1.8;font-style:italic;flex:1}
+    .quote-text::before{content:'\201C';font-size:28px;font-style:normal;color:var(--cyan);opacity:.6;line-height:.5;display:block;margin-bottom:8px}
+    .testimonial-meta{border-top:1px solid rgba(255,255,255,.07);padding-top:18px}
+    .testimonial-name{font-weight:700;font-size:14px;color:#fff;margin-bottom:3px}
+    .testimonial-biz{font-size:12px;color:var(--gray)}
+
+    /* FINAL CTA */
+    .cta-section{padding:110px 24px;text-align:center;position:relative;overflow:hidden}
+    .cta-bg{position:absolute;inset:0;background:
+      radial-gradient(ellipse 70% 70% at 50% 50%,rgba(118,73,236,.22) 0%,transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 80%,rgba(31,59,144,.3) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%,rgba(7,185,253,.12) 0%,transparent 60%)}
+    .cta-inner{position:relative;max-width:760px;margin:0 auto}
+    .cta-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;background:var(--grad-cp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;display:inline-block}
+    .cta-title{font-size:clamp(30px,5vw,58px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:1.05;margin-bottom:22px}
+    .cta-sub{font-size:16px;color:var(--gray);max-width:580px;margin:0 auto 44px;line-height:1.85}
+    .cta-btn{display:inline-block;background:var(--grad-h);color:#fff;text-decoration:none;padding:20px 54px;border-radius:100px;font-weight:700;font-size:17px;letter-spacing:1px;text-transform:uppercase;transition:opacity .2s,transform .25s,box-shadow .3s;box-shadow:0 6px 36px rgba(7,185,253,.35)}
+    .cta-btn:hover{opacity:.9;transform:translateY(-4px);box-shadow:0 14px 52px rgba(7,185,253,.55)}
+    .cta-trust{font-size:12px;color:var(--gray);margin-top:24px;letter-spacing:.5px}
+
+    /* FOOTER */
+    footer{background:rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.06);padding:52px 24px 40px;text-align:center}
+    .footer-logo{font-size:22px;font-weight:900;letter-spacing:4px;text-transform:uppercase;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;margin-bottom:10px}
+    .footer-tagline{font-size:14px;color:var(--gray);margin-bottom:20px}
+    .footer-attr{font-size:12px;color:rgba(148,163,184,.5);margin-bottom:28px;letter-spacing:1px;text-transform:uppercase}
+    .footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+    .footer-links a{font-size:12px;color:var(--gray);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+    .footer-links a:hover{color:var(--cyan)}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav{padding:16px 20px}
+      .hero{padding:120px 20px 70px}
+      h1{letter-spacing:0}
+      .stat-bar-inner{gap:40px}
+      .steps-row{grid-template-columns:1fr;gap:40px}
+      .steps-row::before{display:none}
+      .step{align-items:flex-start;text-align:left;flex-direction:row;gap:20px;padding:0 8px}
+      .step-num{flex-shrink:0}
+      .sms-demo-card{max-width:100%}
+    }
+    @media(max-width:600px){
+      nav{padding:14px 16px}
+      .logo{font-size:16px;letter-spacing:2px}
+      .stat-bar-inner{gap:32px}
+      .stat-num{font-size:36px}
+      .section{padding:72px 20px}
+      .cta-btn{padding:17px 36px;font-size:14px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">LucraLab</a>
+    <a href="#get-started" class="nav-cta">Stop Losing Calls</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">For Local Service Businesses</div>
+      <h1>
+        Every Missed Call<br>
+        <span class="grad-text">Is a Paid Job Walking Out the Door.</span>
+      </h1>
+      <p class="hero-sub">When you can't pick up, we text them back in seconds — answer their questions, book the appointment, and lock in the job. No call center. No hiring. No missed revenue.</p>
+      <div class="hero-actions">
+        <a href="#how-it-works" class="btn-primary">See How It Works</a>
+        <a href="#demo" class="btn-secondary">Watch a Live Demo</a>
+      </div>
+      <!-- SMS DEMO CARD -->
+      <div class="hero-sms-wrap" id="demo">
+        <div class="sms-demo-card">
+          <div class="sms-card-header">
+            <div class="sms-avatar">🔧</div>
+            <div class="sms-name-block">
+              <div class="sms-name">Mike's Plumbing</div>
+              <div class="sms-status">● Auto-Reply Active</div>
+            </div>
+          </div>
+          <div class="missed-call-label">📵 Missed call from: (206) 847-3291</div>
+          <div class="bubble bubble-out">Hey! Sorry we missed you — this is Mike's Plumbing. We're on a job right now but didn't want to leave you hanging. What can we help you with today?</div>
+          <div class="bubble-time">Delivered instantly</div>
+          <div class="bubble bubble-in">Hi! Yeah I've got a busted pipe under my sink, it's leaking pretty bad. Can someone come out today?</div>
+          <div class="bubble-time">Customer replied • 47 sec later</div>
+          <div class="bubble bubble-out">Absolutely — we can get someone out this afternoon between 2–4pm. Can I get your address to confirm the booking?</div>
+          <div class="bubble-time">Auto-replied • 3 sec</div>
+          <div class="deal-badge">✅ Job booked. No call needed.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-bar-inner">
+      <div class="stat">
+        <span class="stat-num">62%</span>
+        <div class="stat-label">of calls to local service businesses go unanswered</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">78%</span>
+        <div class="stat-label">of customers call the next business if no one answers</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">&lt; 60s</span>
+        <div class="stat-label">average response time — faster than any call center</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM SECTION -->
+  <section class="section problem-section">
+    <div class="section-inner centered">
+      <div class="section-label">The Real Cost of Missing Calls</div>
+      <h2 class="section-title">You're Not Just Missing Calls.<br>You're Handing Jobs to Your Competitors.</h2>
+      <p class="section-sub">Every unanswered call is a warm lead walking straight to your competitor's front door. Here's what's actually happening.</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-icon">📞</span>
+          <h3>You're Always Unavailable at the Wrong Time</h3>
+          <p>You're on a job site, under a sink, or in a patient's mouth — and someone who's ready to hire you gets voicemail. By the time you call back, they've already booked someone else.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">💸</span>
+          <h3>Call Centers Charge More and Deliver Less</h3>
+          <p>You're spending $800–1,200/month on answering services that still put people on hold, read scripts, and drop leads. You're paying for coverage you're not getting.</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-icon">⏱️</span>
+          <h3>Speed Is the Sale</h3>
+          <p>Studies show the first business to respond wins the job — over 70% of the time. Every hour you wait to call back cuts your chances of closing in half.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-section" id="how-it-works">
+    <div class="section-inner centered">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Set It Up Once.<br>Never Lose a Lead Again.</h2>
+      <p class="section-sub">Three steps between a missed call and a booked job — and none of them require you to pick up the phone.</p>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <h3>Call Comes In, You Can't Answer</h3>
+            <p>The moment a call goes unanswered, the system triggers automatically — no setup, no button to push, no manual monitoring required.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <h3>They Get a Text Back in Seconds</h3>
+            <p>A friendly, personalized text goes out immediately — answering common questions, qualifying the lead, and moving them toward booking.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <h3>Job Gets Booked. You Get Notified.</h3>
+            <p>When a customer is ready to schedule, you get a notification with everything you need — their name, issue, and a confirmed time slot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTICALS / USE CASES -->
+  <section class="section">
+    <div class="section-inner centered">
+      <div class="section-label">Built for Your Industry</div>
+      <h2 class="section-title">Doesn't Matter What You Do.<br>Missed Calls Cost Everyone.</h2>
+      <p class="section-sub">Customized for the way your business actually works — not a one-size-fits-all script.</p>
+      <div class="verticals-grid">
+        <div class="vertical-card">
+          <span class="vertical-icon">🦷</span>
+          <div class="vertical-name">Dental Practices</div>
+          <div class="pain-label">The Problem</div>
+          <p>Your front desk can't answer every call during procedures — and patients who hit voicemail don't call back, they book somewhere else.</p>
+          <hr class="pain-divider">
+          <div class="solution-label">The Fix</div>
+          <p>We text them back instantly, answer questions about insurance and availability, and confirm the appointment — all before your hygienist changes gloves.</p>
+        </div>
+        <div class="vertical-card">
+          <span class="vertical-icon">🔧</span>
+          <div class="vertical-name">Plumbing &amp; HVAC</div>
+          <div class="pain-label">The Problem</div>
+          <p>You're on the job when the next job calls — and that customer isn't waiting around while you finish up under someone else's sink.</p>
+          <hr class="pain-divider">
+          <div class="solution-label">The Fix</div>
+          <p>We respond the second they hang up, qualify the problem, and get them booked for a window that works — so your schedule fills itself.</p>
+        </div>
+        <div class="vertical-card">
+          <span class="vertical-icon">🖌️</span>
+          <div class="vertical-name">Painting &amp; Home Services</div>
+          <div class="pain-label">The Problem</div>
+          <p>Leads call once, and if they don't hear back within an hour, they've already accepted another quote — or stopped looking entirely.</p>
+          <hr class="pain-divider">
+          <div class="solution-label">The Fix</div>
+          <p>We reach out immediately, collect job details, and keep them warm until you can follow up — so no lead ever goes cold again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="section-inner centered">
+      <div class="section-label">Real Results</div>
+      <h2 class="section-title">Businesses Like Yours Are Booking<br>More Jobs Without Answering More Calls.</h2>
+      <p class="section-sub">Real results from real business owners who got tired of losing leads to voicemail.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="quote-text">I was skeptical — I thought I needed a human to handle calls. But honestly? The response rate is better than when my receptionist was doing it. We booked three jobs in the first week that would've been lost calls.</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Mike T.</div>
+            <div class="testimonial-biz">Owner, residential plumbing company — Seattle, WA</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="quote-text">We cut our answering service and saved $900 a month. The leads we get now are already half-qualified before I even talk to them. It's like having a front desk person who never takes a day off.</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Dr. Rachel K.</div>
+            <div class="testimonial-biz">General Dentist — Phoenix, AZ</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="quote-text">Painting is seasonal and competitive. When someone calls three guys, the first one to respond usually gets the job. This thing made us that first response, every single time. Revenue is up 30% since spring.</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Carlos M.</div>
+            <div class="testimonial-biz">Owner, exterior painting contractor — Austin, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section" id="get-started">
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <div class="cta-label">Ready to Stop Leaving Money on the Table?</div>
+      <h2 class="cta-title">Get Set Up in Under 10 Minutes.</h2>
+      <p class="cta-sub">We'll connect to your existing number, customize the responses for your business, and you'll be live before your next missed call. No tech headaches. No long contracts.</p>
+      <a href="#" class="cta-btn">Start Capturing Every Lead →</a>
+      <p class="cta-trust">No contracts. No setup fees. Cancel anytime. Pricing starts at $97/month.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">LucraLab</div>
+    <p class="footer-tagline">Stop losing the jobs you never knew you had.</p>
+    <p class="footer-attr">A LucraLab Product</p>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/">Home</a>
+    </div>
+  </footer>
+
+</body>
+</html>
