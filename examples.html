@@ -12,6 +12,8 @@
   nav{position:sticky;top:0;z-index:100;background:rgba(13,11,30,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 32px;display:flex;align-items:center;gap:16px}
   .logo{font-size:18px;font-weight:900;letter-spacing:4px;text-transform:uppercase;background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .nav-badge{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);background:rgba(255,255,255,.06);padding:4px 12px;border-radius:100px;border:1px solid rgba(255,255,255,.1)}
+  .nav-cta-ex{margin-left:auto;background:linear-gradient(90deg,#1f3b90,#07b9fd);color:#fff;text-decoration:none;padding:9px 22px;border-radius:100px;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:opacity .2s,box-shadow .25s;white-space:nowrap;flex-shrink:0}
+  .nav-cta-ex:hover{opacity:.88;box-shadow:0 0 20px rgba(7,185,253,.4)}
   .hero{padding:60px 32px 40px;text-align:center;max-width:820px;margin:0 auto}
   .hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;text-transform:uppercase;letter-spacing:2px;line-height:1.1;margin-bottom:16px}
   .hero h1 span{background:var(--grad-h);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -29,7 +31,15 @@
   .star-group-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;padding:8px 20px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
   
   
-  @media(max-width:768px){}
+  @media(max-width:768px){
+    nav{padding:12px 16px;gap:10px}
+    .nav-badge{display:none}
+    .hero{padding:40px 16px 28px}
+    .tabs{padding:0 16px 20px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;position:relative}
+    .tabs::after{content:"";position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,rgba(13,11,30,.9));pointer-events:none;border-radius:0}
+    .tab{white-space:nowrap;flex-shrink:0}
+    .industry-panel{padding:0 16px 60px}
+  }
   
   
   
@@ -65,8 +75,9 @@
 </head>
 <body>
 <nav>
-<div class="logo">Gleam</div>
+<a href="/" style="text-decoration:none;"><div class="logo">Gleam</div></a>
 <div class="nav-badge">Review Sandbox — 6 Industries · 60 Examples</div>
+<a href="https://gleamreply.com/#get-started" class="nav-cta-ex">Start Free Trial</a>
 </nav>
 <div class="hero">
 <h1>Review <span>Response Sandbox</span></h1>
@@ -681,12 +692,12 @@ Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><d
 
 “Installed a new unit last year and it's already having issues. Getting them back out under warranty has been a nightmare. Three voicemails, two emails, still waiting for a callback two weeks later. Great when they want your money, invisible after.”</div><div class="flow-label"><span class="flow-icon">✏️</span><span class="flow-title">You Approve or Edit</span><span class="flow-desc">Reply APPROVE, EDIT, or IGNORE</span></div><div class="sms-bubble msg2">Gleam's suggested reply:
 
-“We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be looking into this matter immediately to ensure it is resolved. Please reach out directly at [Contact Information], and we'll prioritize your request to make things right. Thank you for bringing this to our attention. 
+“We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be looking into this matter immediately to ensure it is resolved. Please reach out directly at our office directly, and we'll prioritize your request to make things right. Thank you for bringing this to our attention. 
 
 — The Pacific Air Systems Team”
 
 Reply APPROVE to post, EDIT [your text] to change it, or IGNORE to skip.</div><div class="flow-label"><span class="flow-icon">✅</span><span class="flow-title">Gleam Posts to Google</span><span class="flow-desc">Response goes live automatically</span></div><div class="gresp"><div class="gresp-label">✅ Gleam posts this response</div>
-<p class="gresp-text">We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be looking into this matter immediately to ensure it is resolved. Please reach out directly at [Contact Information], and we'll prioritize your request to make things right. Thank you for bringing this to our attention. 
+<p class="gresp-text">We're truly sorry to hear about your experience. This is not the level of service we strive to provide, and we apologize for the inconvenience you've faced. Your feedback is important, and we'll be looking into this matter immediately to ensure it is resolved. Please reach out directly at our office directly, and we'll prioritize your request to make things right. Thank you for bringing this to our attention. 
 
 — The Pacific Air Systems Team</p>
 </div></div></div></div><div class="review-group">
@@ -1500,4 +1511,19 @@ function showIndustry(id) {
   event.currentTarget.classList.add('active');
 }
 </script>
+
+<!-- ── BOTTOM CTA ──────────────────────────────────── -->
+<section style="background:linear-gradient(135deg,rgba(31,59,144,.35) 0%,rgba(7,185,253,.15) 100%);border-top:1px solid rgba(7,185,253,.2);padding:80px 32px;text-align:center;">
+  <div style="max-width:680px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;background:linear-gradient(90deg,#7649ec,#07b9fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;">Ready to Automate Yours?</div>
+    <h2 style="font-size:clamp(28px,5vw,44px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:1.1;margin-bottom:16px;color:#fff;">Ready to Put Your Reputation<br>on Autopilot?</h2>
+    <p style="color:#94a3b8;font-size:17px;line-height:1.7;margin-bottom:36px;">Every review responded to. Professionally. Automatically.<br>You just saw 60 examples of what that looks like.</p>
+    <a href="https://gleamreply.com/#get-started" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,#1f3b90,#07b9fd);color:#fff;text-decoration:none;padding:18px 42px;border-radius:100px;font-weight:700;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 32px rgba(7,185,253,.35);transition:opacity .2s,box-shadow .25s;">
+      Start Free Trial — $49/mo
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div style="margin-top:20px;font-size:13px;color:#475569;">No contracts. Cancel anytime. Setup in under 10 minutes.</div>
+  </div>
+</section>
+
 </body></html>

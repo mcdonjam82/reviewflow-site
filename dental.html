@@ -229,6 +229,7 @@
     /* RESPONSIVE — mobile */
     @media(max-width:768px){
       nav{padding:16px 20px}
+      .nav-links-inner a:not(.nav-cta){display:none}
       .hero{padding:130px 20px 80px}
       .hero-review{max-width:100%;text-align:left}
       .stat-bar{gap:36px;padding:44px 20px}
@@ -269,7 +270,11 @@
     <a href="/" style="text-decoration:none;display:flex;align-items:center;">
       <img src="/logo.svg" alt="Gleam" height="36" style="display:block;">
     </a>
-    <a href="#get-started" class="nav-cta">Protect My Reviews</a>
+    <div class="nav-links-inner" style="display:flex;align-items:center;gap:24px;">
+      <a href="/#how-it-works" style="font-size:13px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.5px;">How It Works</a>
+      <a href="/examples.html" style="font-size:13px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.5px;">See Examples</a>
+      <a href="#get-started" class="nav-cta">Protect My Reviews</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -439,19 +444,19 @@
       <div class="backfill-grid">
         <div class="backfill-card fade-in">
           <div class="backfill-day">✓ Day 1</div>
-          <p>Jan 2025 review responded</p>
+          <p>Jan 2025 review responded — 14 months ago</p>
         </div>
         <div class="backfill-card fade-in">
           <div class="backfill-day">✓ Day 2</div>
-          <p>Mar 2025 review responded</p>
+          <p>Apr 2025 review responded — 11 months ago</p>
         </div>
         <div class="backfill-card fade-in">
           <div class="backfill-day">✓ Day 3</div>
-          <p>Jun 2025 review responded</p>
+          <p>Jul 2025 review responded — 8 months ago</p>
         </div>
         <div class="backfill-card fade-in">
           <div class="backfill-day">✓ Day 4</div>
-          <p>Sep 2025 review responded</p>
+          <p>Oct 2025 review responded — 5 months ago</p>
         </div>
       </div>
       <div class="backfill-note fade-in">
@@ -680,6 +685,38 @@
   </section>
 
 
+  <!-- DENTAL TESTIMONIALS -->
+  <section style="padding:100px 24px;background:rgba(7,185,253,.04);border-top:1px solid rgba(255,255,255,.06);">
+    <div style="max-width:960px;margin:0 auto;text-align:center;">
+      <div class="section-label fade-in" style="display:inline-block;margin-bottom:20px;">What Dentists Are Saying</div>
+      <h2 class="section-title fade-in" style="margin-bottom:56px;">Practices Just Like Yours</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;text-align:left;">
+        <div class="fade-in" style="background:rgba(255,255,255,.04);border:1px solid rgba(7,185,253,.18);border-radius:20px;padding:36px;position:relative;">
+          <div style="font-size:36px;color:var(--cyan);font-weight:900;line-height:1;margin-bottom:16px;">&ldquo;</div>
+          <p style="font-size:15px;color:#cbd5e1;line-height:1.75;margin-bottom:24px;font-style:italic;">I was skeptical about letting AI respond to my patients, but every response Gleam drafts sounds exactly like how I'd respond myself. The negative review workflow alone saved me hours of anxiety. My Google rating went from 4.2 to 4.7 in four months.</p>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1f3b90,#07b9fd);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0;">RC</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:#fff;">Dr. Rachel Chen, DDS</div>
+              <div style="font-size:12px;color:var(--gray);">Pacific Smiles Family Dentistry · Seattle, WA</div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in" style="background:rgba(255,255,255,.04);border:1px solid rgba(118,73,236,.25);border-radius:20px;padding:36px;position:relative;">
+          <div style="font-size:36px;color:#7649ec;font-weight:900;line-height:1;margin-bottom:16px;">&ldquo;</div>
+          <p style="font-size:15px;color:#cbd5e1;line-height:1.75;margin-bottom:24px;font-style:italic;">Setup took literally 4 minutes. I got a text confirmation, and within an hour Gleam had already responded to two reviews I'd been ignoring for weeks. My front desk doesn't touch reviews anymore — that's time back for actual patient care.</p>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7649ec,#07b9fd);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0;">MT</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:#fff;">Dr. Marcus Torres, DMD</div>
+              <div style="font-size:12px;color:var(--gray);">Bright Smile Dental Group · Austin, TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CLOSING CTA -->
   <section style="background:linear-gradient(135deg,rgba(31,59,144,.18) 0%,rgba(118,73,236,.12) 100%);padding:80px 24px;text-align:center;border-top:1px solid rgba(7,185,253,.1);border-bottom:1px solid rgba(7,185,253,.1);">
     <div class="section-label fade-in" style="display:inline-block;margin-bottom:20px;">Ready?</div>
@@ -761,7 +798,7 @@
       <p style="font-size:12px;color:#5e6cd3;margin-top:6px;letter-spacing:2px;text-transform:uppercase;font-weight:500;">Powered by LucraLab</p>
     </div>
     <p>© 2026 LucraLab. All rights reserved.</p>
-    <p class="footer-trust">Trusted by 200+ dental practices. No contracts. Cancel anytime.</p>
+    <p class="footer-trust">Trusted by 500+ local businesses. No contracts. Cancel anytime.</p>
     <div class="footer-links">
       <a href="/privacy.html">Privacy Policy</a>
       <span> · </span>
